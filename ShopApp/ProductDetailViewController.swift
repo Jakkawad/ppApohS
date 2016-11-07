@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import ImageSlideshow
 
 class ProductDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    var slideshowTransitioningDelegate: ZoomAnimatedTransitioningDelegate?
+    let localSource = [ImageSource(imageString: "img1")!, ImageSource(imageString: "img2")!, ImageSource(imageString: "img3")!, ImageSource(imageString: "img4")!]
+    
     @IBOutlet weak var tableView:UITableView!
+    @IBOutlet var slideshow: ImageSlideshow!
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -37,6 +43,15 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         self.tableView.separatorColor = UIColor.clear
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
+        //
+        slideshow.backgroundColor = UIColor.white
+        slideshow.slideshowInterval = 5.0
+        slideshow.pageControlPosition = PageControlPosition.underScrollView
+        slideshow.pageControl.currentPageIndicatorTintColor = UIColor.lightGray;
+        slideshow.pageControl.pageIndicatorTintColor = UIColor.black;
+        slideshow.contentScaleMode = UIViewContentMode.scaleAspectFill
+        
+        slideshow.setImageInputs(localSource)
         // Do any additional setup after loading the view.
     }
 
