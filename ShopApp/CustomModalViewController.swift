@@ -1,18 +1,24 @@
 //
-//  WishlishViewController.swift
+//  CustomModalViewController.swift
 //  ShopApp
 //
-//  Created by Jakkawad Chaiplee on 10/28/2559 BE.
+//  Created by Jakkawad Chaiplee on 11/17/2559 BE.
 //  Copyright © 2559 Jakkawad Chaiplee. All rights reserved.
 //
 
 import UIKit
 
-class WishlishViewController: UIViewController {
+class CustomModalViewController: UIViewController {
 
+    override func viewWillAppear(_ animated: Bool) {
+//        view.backgroundColor = UIColor.clear
+//        view.isOpaque = false
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Do any additional setup after loading the view.
     }
 
