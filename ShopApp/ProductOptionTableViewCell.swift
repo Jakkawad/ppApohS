@@ -10,6 +10,8 @@ import UIKit
 
 class ProductOptionTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    var optionArray = [String]()
+    
     @IBOutlet weak var collectionView:UICollectionView!
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -18,6 +20,7 @@ class ProductOptionTableViewCell: UITableViewCell, UICollectionViewDataSource, U
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
+//        return optionArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -27,7 +30,7 @@ class ProductOptionTableViewCell: UITableViewCell, UICollectionViewDataSource, U
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+//        print(optionArray)
         
         // Initialization code
     }

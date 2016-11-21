@@ -13,7 +13,9 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
 
     var slideshowTransitioningDelegate: ZoomAnimatedTransitioningDelegate?
     let localSource = [ImageSource(imageString: "img1")!, ImageSource(imageString: "img2")!, ImageSource(imageString: "img3")!, ImageSource(imageString: "img4")!, ImageSource(imageString: "427-cobra")!]
+
     
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet var slideshow: ImageSlideshow!
     
@@ -77,16 +79,14 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // TableView no border
         self.tableView.separatorColor = UIColor.clear
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-//        self.tableView.rowHeight = 44
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 120
         
         //
         slideshow.backgroundColor = UIColor.white

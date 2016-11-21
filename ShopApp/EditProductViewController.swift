@@ -87,32 +87,18 @@ class EditProductViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        if section == 0 {
-//            return CGFloat.leastNormalMagnitude
-//        }
-//        return 20
-//        return 0
-        return CGFloat.leastNormalMagnitude
+        if section == 0 {
+            return CGFloat.leastNormalMagnitude
+        }
+        return 20
     }
-    
-//    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 40))
-//        footerView.backgroundColor = UIColor.black
-//        
-//        return footerView
-//    }
-//    
-//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return 40.0
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 150))
-//        footerView.backgroundColor = UIColor.white
-//        
-//        self.tableView.tableFooterView = footerView
+        let productViewController = ProductOptionTableViewCell()
+        productViewController.optionArray = colorArray
+
         // Do any additional setup after loading the view.
     }
 
