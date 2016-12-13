@@ -12,6 +12,23 @@ class ProductViewController: UIViewController, UICollectionViewDataSource, UICol
 
     @IBOutlet weak var collectionView:UICollectionView!
     
+    @IBAction func btnGrid(_ sender: Any) {
+        print("Grid")
+    }
+    
+    @IBAction func btnList(_ sender: Any) {
+        print("List")
+    }
+    
+    @IBAction func btnSort(_ sender: Any) {
+        print("Sort")
+    }
+    
+    @IBAction func btnFilter(_ sender: Any) {
+        print("Filter")
+        performSegue(withIdentifier: "FilterProductSegue", sender: self)
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }

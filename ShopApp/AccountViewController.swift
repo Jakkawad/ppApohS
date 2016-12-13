@@ -46,6 +46,21 @@ class AccountViewController: UIViewController, UICollectionViewDataSource, UICol
         return cell0
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            performSegue(withIdentifier: "ProfileSegue", sender: self)
+        } else if indexPath.row == 1 {
+            performSegue(withIdentifier: "PasswordSegue", sender: self)
+        } else if indexPath.row == 2 {
+            
+        } else if indexPath.row == 3 {
+            
+        } else if indexPath.row == 4 {
+            
+        } else {
+            
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

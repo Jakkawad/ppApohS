@@ -10,7 +10,7 @@ import UIKit
 import ImageSlideshow
 
 class ProductDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     var slideshowTransitioningDelegate: ZoomAnimatedTransitioningDelegate?
     let localSource = [ImageSource(imageString: "img1")!, ImageSource(imageString: "img2")!, ImageSource(imageString: "img3")!, ImageSource(imageString: "img4")!, ImageSource(imageString: "427-cobra")!]
 
@@ -28,10 +28,11 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     
     @IBAction func shareWithFriends(_ sender: UIButton) {
         print("Share with friends")
-        let modalViewController = CustomModalViewController()
-        modalViewController.modalPresentationStyle = .overCurrentContext
-        present(modalViewController, animated: true, completion: nil)
+//        let modalViewController = CustomModalViewController()
+//        modalViewController.modalPresentationStyle = .overCurrentContext
+//        present(modalViewController, animated: true, completion: nil)
     }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -82,6 +83,8 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // JSON
+        
         // TableView no border
         self.tableView.separatorColor = UIColor.clear
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none

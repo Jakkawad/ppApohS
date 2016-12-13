@@ -57,7 +57,7 @@ class JustArrivedViewController: UIViewController, UITableViewDataSource, UITabl
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ProductSegue" {
-            let productViewController = segue.destination as? ProductViewController
+//            let productViewController = segue.destination as? ProductViewController
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

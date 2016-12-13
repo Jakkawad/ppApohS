@@ -1,30 +1,15 @@
 //
-//  ProfileViewController.swift
+//  LoginViewController.swift
 //  ShopApp
 //
-//  Created by Jakkawad Chaiplee on 11/21/2559 BE.
+//  Created by Jakkawad Chaiplee on 11/26/2559 BE.
 //  Copyright © 2559 Jakkawad Chaiplee. All rights reserved.
 //
 
 import UIKit
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class LoginViewController: UIViewController {
 
-    @IBOutlet weak var tableView:UITableView!
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0)
-        return cell0!
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

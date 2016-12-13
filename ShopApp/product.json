@@ -1,0 +1,8 @@
+{
+    "id": "00001",
+    "name": "shirt",
+    "category": "001",
+    "image": ["https://", "https://"],
+    "price": "190",
+    "description": "shirt is shirt"
+}

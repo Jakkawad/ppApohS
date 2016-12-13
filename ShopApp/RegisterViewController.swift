@@ -1,14 +1,14 @@
 //
-//  PushPopNavigationViewController.swift
+//  RegisterViewController.swift
 //  ShopApp
 //
-//  Created by Jakkawad Chaiplee on 10/28/2559 BE.
+//  Created by Jakkawad Chaiplee on 12/8/2559 BE.
 //  Copyright © 2559 Jakkawad Chaiplee. All rights reserved.
 //
 
 import UIKit
 
-class PushPopNavigationViewController: UINavigationController {
+class RegisterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
