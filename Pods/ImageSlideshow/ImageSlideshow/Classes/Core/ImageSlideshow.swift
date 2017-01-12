@@ -7,6 +7,13 @@
 
 import UIKit
 
+/** 
+    Used to represent position of the Page Control
+    - hidden: Page Control is hidden
+    - insideScrollView: Page Control is inside image slideshow
+    - underScrollView: Page Control is under image slideshow
+    - custom: Custom vertical padding, relative to "insideScrollView" position
+ */
 public enum PageControlPosition {
     case hidden
     case insideScrollView
@@ -25,14 +32,22 @@ public enum PageControlPosition {
     }
 }
 
+/// Used to represent image preload strategy
+///
+/// - fixed: preload only fixed number of images before and after the current image
+/// - all: preload all images in the slideshow
 public enum ImagePreload {
     case fixed(offset: Int)
     case all
 }
 
+/// Main view containing the Image Slideshow
 open class ImageSlideshow: UIView {
-    
+
+    /// Scroll View to wrap the slideshow
     open let scrollView = UIScrollView()
+
+    /// Page Control shown in the slideshow
     open let pageControl = UIPageControl()
     
     // MARK: - State properties
@@ -48,8 +63,9 @@ open class ImageSlideshow: UIView {
     /// Current page
     open fileprivate(set) var currentPage: Int = 0 {
         didSet {
+            pageControl.currentPage = currentPage
+
             if oldValue != currentPage {
-                pageControl.currentPage = currentPage
                 currentPageChanged?(currentPage)
                 loadImages(for: currentPage)
             }
@@ -67,9 +83,14 @@ open class ImageSlideshow: UIView {
             return nil
         }
     }
-    
+
+    /// Current scroll view page. This may differ from `currentPage` as circular slider has two more dummy pages at indexes 0 and n-1 to provide fluent scrolling between first and last item.
     open fileprivate(set) var scrollViewPage: Int = 0
+
+    /// Input Sources loaded to slideshow
     open fileprivate(set) var images = [InputSource]()
+
+    /// Image Slideshow Items loaded to slideshow
     open fileprivate(set) var slideshowItems = [ImageSlideshowItem]()
     
     // MARK: - Preferences
@@ -111,6 +132,7 @@ open class ImageSlideshow: UIView {
     fileprivate var slideshowTimer: Timer?
     fileprivate var scrollViewImages = [InputSource]()
 
+    /// Transitioning delegate to manage the transition to full screen controller
     open fileprivate(set) var slideshowTransitioningDelegate: ZoomAnimatedTransitioningDelegate?
 
     // MARK: - Life cycle
@@ -144,6 +166,7 @@ open class ImageSlideshow: UIView {
         addSubview(scrollView)
         
         addSubview(pageControl)
+        pageControl.addTarget(self, action: #selector(pageControlValueChanged), for: .valueChanged)
         
         setTimerIfNeeded()
         layoutScrollView()
@@ -227,7 +250,11 @@ open class ImageSlideshow: UIView {
     }
     
     // MARK: - Image setting
-    
+
+    /**
+     Set image inputs into the image slideshow
+     - parameter inputs: Array of InputSource instances.
+     */
     open func setImageInputs(_ inputs: [InputSource]) {
         self.images = inputs
         self.pageControl.numberOfPages = inputs.count;
@@ -255,20 +282,30 @@ open class ImageSlideshow: UIView {
     }
     
     // MARK: paging methods
-    
-    open func setCurrentPage(_ currentPage: Int, animated: Bool) {
-        var pageOffset = currentPage
+
+    /**
+     Change the current page
+     - parameter newPage: new page
+     - parameter animated: true if animate the change
+     */
+    open func setCurrentPage(_ newPage: Int, animated: Bool) {
+        var pageOffset = newPage
         if circular {
             pageOffset += 1
         }
         
         self.setScrollViewPage(pageOffset, animated: animated)
     }
-    
-    open func setScrollViewPage(_ scrollViewPage: Int, animated: Bool) {
+
+    /**
+     Change the scroll view page. This may differ from `setCurrentPage` as circular slider has two more dummy pages at indexes 0 and n-1 to provide fluent scrolling between first and last item.
+     - parameter newScrollViewPage: new scroll view page
+     - parameter animated: true if animate the change
+     */
+    open func setScrollViewPage(_ newScrollViewPage: Int, animated: Bool) {
         if scrollViewPage < scrollViewImages.count {
-            self.scrollView.scrollRectToVisible(CGRect(x: scrollView.frame.size.width * CGFloat(scrollViewPage), y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height), animated: animated)
-            self.setCurrentPageForScrollViewPage(scrollViewPage)
+            self.scrollView.scrollRectToVisible(CGRect(x: scrollView.frame.size.width * CGFloat(newScrollViewPage), y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height), animated: animated)
+            self.setCurrentPageForScrollViewPage(newScrollViewPage)
         }
     }
     
@@ -285,13 +322,11 @@ open class ImageSlideshow: UIView {
         if !circular && page == scrollViewImages.count - 1 {
             nextPage = 0
         }
-        
-        self.scrollView.scrollRectToVisible(CGRect(x: scrollView.frame.size.width * CGFloat(nextPage), y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height), animated: true)
-        
-        self.setCurrentPageForScrollViewPage(nextPage);
+
+        self.setScrollViewPage(nextPage, animated: true)
     }
     
-    open func setCurrentPageForScrollViewPage(_ page: Int) {
+    fileprivate func setCurrentPageForScrollViewPage(_ page: Int) {
         if scrollViewPage != page {
             // current page has changed, zoom out this image
             if slideshowItems.count > scrollViewPage {
@@ -327,7 +362,11 @@ open class ImageSlideshow: UIView {
         setTimerIfNeeded()
     }
 
-    /// Open full screen slideshow
+    /**
+     Open full screen slideshow
+     - parameter controller: Controller to present the full screen controller from
+     - returns: FullScreenSlideshowViewController instance
+     */
     @discardableResult
     open func presentFullScreenController(from controller:UIViewController) -> FullScreenSlideshowViewController {
         let fullscreen = FullScreenSlideshowViewController()
@@ -343,6 +382,10 @@ open class ImageSlideshow: UIView {
 
         return fullscreen
     }
+
+    @objc private func pageControlValueChanged() {
+        self.setCurrentPage(pageControl.currentPage, animated: true)
+    }
 }
 
 extension ImageSlideshow: UIScrollViewDelegate {
@@ -355,9 +398,10 @@ extension ImageSlideshow: UIScrollViewDelegate {
         
         setTimerIfNeeded()
     }
+    
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
-        setCurrentPageForScrollViewPage(page);
+        let page = Int(scrollView.contentOffset.x) / Int(scrollView.frame.size.width)
+        setCurrentPageForScrollViewPage(page)
     }
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -9,17 +9,26 @@
 import UIKit
 
 open class ZoomAnimatedTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
+    /// parent image view used for animated transition
+    open var referenceImageView: UIImageView?
+    /// parent slideshow view used for animated transition
+    open var referenceSlideshowView: ImageSlideshow?
 
-    var referenceImageView: UIImageView?
-    var referenceSlideshowView: ImageSlideshow?
-    let referenceSlideshowController: FullScreenSlideshowViewController
+    // must be weak because FullScreenSlideshowViewController has strong reference to its transitioning delegate
+    weak var referenceSlideshowController: FullScreenSlideshowViewController?
+
     var referenceSlideshowViewFrame: CGRect?
     var gestureRecognizer: UIPanGestureRecognizer!
     fileprivate var interactionController: UIPercentDrivenInteractiveTransition?
     
-    /// Enables or disables swipe-to-dismiss
+    /// Enables or disables swipe-to-dismiss interactive transition
     open var slideToDismissEnabled: Bool = true
-    
+
+    /**
+        Init the transitioning delegate with a source ImageSlideshow
+        - parameter slideshowView: ImageSlideshow instance to animate the transition from
+        - parameter slideshowController: FullScreenViewController instance to animate the transition to
+     */
     public init(slideshowView: ImageSlideshow, slideshowController: FullScreenSlideshowViewController) {
         self.referenceSlideshowView = slideshowView
         self.referenceSlideshowController = slideshowController
@@ -29,6 +38,11 @@ open class ZoomAnimatedTransitioningDelegate: NSObject, UIViewControllerTransiti
         initialize()
     }
 
+    /**
+        Init the transitioning delegate with a source ImageView
+        - parameter imageView: UIImageView instance to animate the transition from
+        - parameter slideshowController: FullScreenViewController instance to animate the transition to
+     */
     public init(imageView: UIImageView, slideshowController: FullScreenSlideshowViewController) {
         self.referenceImageView = imageView
         self.referenceSlideshowController = slideshowController
@@ -47,6 +61,10 @@ open class ZoomAnimatedTransitioningDelegate: NSObject, UIViewControllerTransiti
     }
     
     func handleSwipe(_ gesture: UIPanGestureRecognizer) {
+        guard let referenceSlideshowController = referenceSlideshowController else {
+            return
+        }
+
         let percent = min(max(fabs(gesture.translation(in: gesture.view!).y) / 200.0, 0.0), 1.0)
         
         if gesture.state == .began {
@@ -78,7 +96,7 @@ open class ZoomAnimatedTransitioningDelegate: NSObject, UIViewControllerTransiti
             interactionController = nil
         }
     }
-    
+
     open func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if let reference = referenceSlideshowView {
             return ZoomInAnimator(referenceSlideshowView: reference, parent: self)
@@ -118,7 +136,7 @@ extension ZoomAnimatedTransitioningDelegate: UIGestureRecognizerDelegate {
             return false
         }
 
-        if let currentItem = referenceSlideshowController.slideshow.currentSlideshowItem , currentItem.isZoomed() {
+        if let currentItem = referenceSlideshowController?.slideshow.currentSlideshowItem, currentItem.isZoomed() {
             return false
         }
         
@@ -200,6 +218,7 @@ extension ZoomInAnimator: UIViewControllerAnimatedTransitioning {
             transitionView?.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
         }, completion: {(finished: Bool) in
             fromViewController.view.alpha = 1
+            self.referenceImageView?.alpha = 1
             transitionView?.removeFromSuperview()
             transitionBackgroundView.removeFromSuperview()
             containerView.addSubview(toViewController.view)
@@ -241,6 +260,8 @@ extension ZoomOutAnimator: UIViewControllerAnimatedTransitioning {
 
         var transitionViewFinalFrame: CGRect
         if let referenceImageView = referenceImageView {
+            referenceImageView.alpha = 0
+
             let referenceSlideshowViewFrame = containerView.convert(referenceImageView.bounds, from: referenceImageView)
             transitionViewFinalFrame = referenceSlideshowViewFrame
 
@@ -270,13 +291,13 @@ extension ZoomOutAnimator: UIViewControllerAnimatedTransitioning {
         fromViewController.view.isHidden = true
         
         let duration: TimeInterval = transitionDuration(using: transitionContext)
-        
-        UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions(), animations: {
+        let animations = {
             toViewController.view.alpha = 1
             transitionView.frame = transitionViewFinalFrame
-        }, completion: {(finished: Bool) in
+        }
+        let completion = { (_: Any) in
             let completed = !transitionContext.transitionWasCancelled
-            
+
             if completed {
                 self.referenceImageView?.alpha = 1
                 fromViewController.view.removeFromSuperview()
@@ -287,11 +308,18 @@ extension ZoomOutAnimator: UIViewControllerAnimatedTransitioning {
                 fromViewController.view.isHidden = false
                 self.referenceImageView?.alpha = 0
             }
-            
+
             transitionView.removeFromSuperview()
             transitionBackgroundView.removeFromSuperview()
-            
+
             transitionContext.completeTransition(completed)
-        })
+        }
+
+        // Working around iOS 10 bug in UIView.animate causing a glitch in interrupted interactive transition 
+        if #available(iOS 10.0, *) {
+            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: duration, delay: 0, options: UIViewAnimationOptions(), animations: animations, completion: completion)
+        } else {
+            UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions(), animations: animations, completion: completion)
+        }
     }
 }

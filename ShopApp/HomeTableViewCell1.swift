@@ -1,18 +1,16 @@
 //
-//  ProductOptionTableViewCell.swift
+//  HomeTableViewCell1.swift
 //  ShopApp
 //
-//  Created by Jakkawad Chaiplee on 11/18/2559 BE.
-//  Copyright © 2559 Jakkawad Chaiplee. All rights reserved.
+//  Created by Jakkawad Chaiplee on 1/12/2560 BE.
+//  Copyright © 2560 Jakkawad Chaiplee. All rights reserved.
 //
 
 import UIKit
 
-class ProductOptionTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    var optionArray = [String]()
-    
-    @IBOutlet weak var collectionView:UICollectionView!
+class HomeTableViewCell1: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
+
+    @IBOutlet weak var collectionView: UICollectionView!
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -20,18 +18,15 @@ class ProductOptionTableViewCell: UITableViewCell, UICollectionViewDataSource, U
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
-//        return optionArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell0 = collectionView.dequeueReusableCell(withReuseIdentifier: tableCell0, for: indexPath)
+        let cell0 = collectionView.dequeueReusableCell(withReuseIdentifier: "tableCell0", for: indexPath)
         return cell0
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        print(optionArray)
-        
         // Initialization code
     }
 

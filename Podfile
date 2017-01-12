@@ -4,7 +4,9 @@ platform :ios, ’10.0’
 use_frameworks!
 
 target 'ShopApp' do
-pod 'ImageSlideshow', '~> 1.0.0-beta.1'
+pod 'Alamofire'
+pod 'ImageSlideshow/Alamofire'
+pod 'AlamofireImage'
 end
 
 target 'ShopAppTests' do

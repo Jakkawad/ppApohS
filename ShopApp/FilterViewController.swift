@@ -22,7 +22,7 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0) as? FilterSliderTableViewCell
+            let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0)
             return cell0!
         } else {
             let cell1 = tableView.dequeueReusableCell(withIdentifier: tableCell1) as? FilterSortTableViewCell

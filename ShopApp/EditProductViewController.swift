@@ -48,7 +48,7 @@ class EditProductViewController: UIViewController, UITableViewDataSource, UITabl
             let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0)
             return cell0!
         } else if indexPath.row == 1 {
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: "tableImageCell") as! ProductOptionTableViewCell
+            let cell1 = tableView.dequeueReusableCell(withIdentifier: tableCell1) as! EditProductTableViewCell0
             return cell1
         } else if indexPath.row == 2 {
             let cell2 = tableView.dequeueReusableCell(withIdentifier: tableCell2)
@@ -96,8 +96,6 @@ class EditProductViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let productViewController = ProductOptionTableViewCell()
-        productViewController.optionArray = colorArray
 
         // Do any additional setup after loading the view.
     }
