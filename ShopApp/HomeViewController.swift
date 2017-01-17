@@ -8,12 +8,18 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HomeTableViewCell2Delegate {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HomeTableViewCell2Delegate, HomeTableViewCell1Delegate {
 
     @IBOutlet weak var tableView: UITableView!
     
     var collectionItemHeight: Double = 0.0
     var collectionCell: CGFloat = 0.0
+    // Protocol
+    
+    func didSelectRow() {
+        print("didselect")
+        performSegue(withIdentifier: "ProductAllSegue", sender: nil)
+    }
     
     func getHeight(height: Double) {
         let heightResult: Double = (height * 5) + (5 * 10) + (6 * 5)
@@ -42,6 +48,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             return cell0!
         } else if indexPath.section == 1 {
             let cell1 = tableView.dequeueReusableCell(withIdentifier: "tableCell1") as? HomeTableViewCell1
+            cell1?.delegate = self
             return cell1!
         } else {
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "tableCell2") as? HomeTableViewCell2
@@ -56,7 +63,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         } else if indexPath.section == 1 {
             return 120
         } else {
-            print(collectionCell)
+//            print(collectionCell)
             return collectionCell
         }
     }
@@ -64,6 +71,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.separatorColor = UIColor.clear
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        
         // Do any additional setup after loading the view.
     }
 
@@ -73,14 +83,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CategorySegue" {
+            let productAllVC = segue.destination as? ProductViewController
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

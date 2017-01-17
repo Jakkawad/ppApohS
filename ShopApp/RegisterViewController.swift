@@ -10,6 +10,11 @@ import UIKit
 
 class RegisterViewController: UIViewController {
 
+    
+    @IBAction func btnDismiss(_ sender: UITapGestureRecognizer) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

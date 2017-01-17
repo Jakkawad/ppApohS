@@ -10,6 +10,8 @@ import UIKit
 
 class ProductViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    var tableObjects: Int!
+    
     @IBOutlet weak var collectionView:UICollectionView!
     
     @IBAction func btnGrid(_ sender: Any) {

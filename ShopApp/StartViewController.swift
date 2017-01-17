@@ -1,33 +1,38 @@
 //
-//  ProfileViewController.swift
+//  StartViewController.swift
 //  ShopApp
 //
-//  Created by Jakkawad Chaiplee on 11/21/2559 BE.
+//  Created by Jakkawad Chaiplee on 11/26/2559 BE.
 //  Copyright © 2559 Jakkawad Chaiplee. All rights reserved.
 //
 
 import UIKit
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class StartViewController: UIViewController {
 
-    @IBOutlet weak var tableView:UITableView!
+    @IBOutlet weak var imageViewBackground: UIImageView!
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    @IBAction func btnRegister(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "RegisterSegue", sender: nil)
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9
+    @IBAction func btnLogin(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "LoginSegue", sender: nil)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0)
-        return cell0!
+    @IBAction func btnLoginWithFB(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "StartSegue", sender: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+//        performSegue(withIdentifier: "StartSegue", sender: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+//        imageViewBackground!.alpha = 0.5
+        
         // Do any additional setup after loading the view.
     }
 

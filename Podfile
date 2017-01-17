@@ -7,6 +7,7 @@ target 'ShopApp' do
 pod 'Alamofire'
 pod 'ImageSlideshow/Alamofire'
 pod 'AlamofireImage'
+pod 'SwiftKeychainWrapper'
 end
 
 target 'ShopAppTests' do

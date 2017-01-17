@@ -2,14 +2,18 @@
 //  LoginViewController.swift
 //  ShopApp
 //
-//  Created by Jakkawad Chaiplee on 11/26/2559 BE.
-//  Copyright © 2559 Jakkawad Chaiplee. All rights reserved.
+//  Created by Jakkawad Chaiplee on 1/16/2560 BE.
+//  Copyright © 2560 Jakkawad Chaiplee. All rights reserved.
 //
 
 import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBAction func btnDismiss(_ sender: UITapGestureRecognizer) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

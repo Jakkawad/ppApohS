@@ -33,10 +33,14 @@ class HomeTableViewCell2: UITableViewCell, UICollectionViewDataSource, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell0 = collectionView.dequeueReusableCell(withReuseIdentifier: "tableCell0", for: indexPath)
-        cell0.layer.borderWidth = 2.0
-        cell0.layer.borderColor = UIColor.orange.cgColor
-        return cell0
+        let cell0 = collectionView.dequeueReusableCell(withReuseIdentifier: "tableCell0", for: indexPath) as? HomeCollectionViewCell1
+        cell0?.layer.borderWidth = 2.0
+        cell0?.layer.borderColor = UIColor.orange.cgColor
+        return cell0!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row)
     }
     
     override func awakeFromNib() {
