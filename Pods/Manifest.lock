@@ -2,21 +2,29 @@ PODS:
   - Alamofire (4.2.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
   - ImageSlideshow/Alamofire (1.0.0):
     - AlamofireImage (~> 3.0)
     - ImageSlideshow/Core
   - ImageSlideshow/Core (1.0.0)
+  - SwiftKeychainWrapper (3.0.1)
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
+  - FMDB
   - ImageSlideshow/Alamofire
+  - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   ImageSlideshow: 2787e10e202b79ecf5348a205c539fcc5bb8e62b
+  SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: a4518d244a9e9b658da7b2d07a19c893f45328b4
+PODFILE CHECKSUM: 7dbe8cf6ec9161f4cb1759a3a7729725dc6f09ba
 
 COCOAPODS: 1.1.1

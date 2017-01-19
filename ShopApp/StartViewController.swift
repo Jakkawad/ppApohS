@@ -21,11 +21,11 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func btnLoginWithFB(_ sender: UITapGestureRecognizer) {
-        performSegue(withIdentifier: "StartSegue", sender: nil)
+//        performSegue(withIdentifier: "StartSegue", sender: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        performSegue(withIdentifier: "StartSegue", sender: nil)
+        performSegue(withIdentifier: "StartSegue", sender: nil)
     }
     
     override func viewDidLoad() {

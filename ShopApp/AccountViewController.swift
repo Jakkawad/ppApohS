@@ -10,9 +10,7 @@ import UIKit
 
 class AccountViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    var titleSection1 = ["ผู้แนะนำ", "อีเมล์", "ชื่อนามสกุล", "ที่อยู่จัดส่ง", "เปลี่ยนรหัสผ่าน"]
-    var titleSection2 = ["ธนาคาร", "ชื่อบัญชี", "เลขบัญชี", "สาขา", "เบอร์มือถือ"]
-    
+    var titleArray = ["ข้อมูลส่วนตัว", "เปลี่ยนรหัสผ่าน", "สั่งซื้อของฉัน", "ข้อมูลธุรกรรม", "ประวัติธุรกรรม", "รายการโปรด", "แจ้งเตือน", "ตั้งค่าใช้งาน", "ออกจากระบบ"]
     
     @IBOutlet weak var collectionView:UICollectionView!
     
@@ -22,12 +20,13 @@ class AccountViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return titleArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell0 = collectionView.dequeueReusableCell(withReuseIdentifier: tableCell0, for: indexPath)
-        return cell0
+        let cell0 = collectionView.dequeueReusableCell(withReuseIdentifier: tableCell0, for: indexPath) as? AccountCollectionViewCell
+        cell0?.lblTitle.text = titleArray[indexPath.row]
+        return cell0!
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

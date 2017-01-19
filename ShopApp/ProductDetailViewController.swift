@@ -12,7 +12,7 @@ import ImageSlideshow
 class ProductDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var slideshowTransitioningDelegate: ZoomAnimatedTransitioningDelegate?
-    let localSource = [ImageSource(imageString: "img1")!, ImageSource(imageString: "img2")!, ImageSource(imageString: "img3")!, ImageSource(imageString: "img4")!, ImageSource(imageString: "427-cobra")!]
+    let localSource = [ImageSource(imageString: "pink-shirt.jpg")!, ImageSource(imageString: "white-shirt")!, ImageSource(imageString: "gray-shirt")!, ImageSource(imageString: "orange-shirt")!]
 
     
     @IBOutlet weak var headerView: UIView!

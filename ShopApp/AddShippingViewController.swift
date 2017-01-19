@@ -1,43 +1,36 @@
 //
-//  PaymentViewController.swift
+//  AddShippingViewController.swift
 //  ShopApp
 //
-//  Created by Jakkawad Chaiplee on 11/19/2559 BE.
-//  Copyright © 2559 Jakkawad Chaiplee. All rights reserved.
+//  Created by Jakkawad Chaiplee on 1/18/2560 BE.
+//  Copyright © 2560 Jakkawad Chaiplee. All rights reserved.
 //
 
 import UIKit
 
-class PaymentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AddShippingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var paymentArray = ["Credit card":"0", "Cash":"1"]
+    var titleArray = ["ชื่อ-นามสกุล", "ที่อยู่", "แขวง/ตำบล", "เขต/อำเภอ", "จังหวัด", "รหัสไฟรษณีย์", "เบอร์โทรศัพท์"]
     
-    @IBOutlet weak var tableView:UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func btnSave(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return paymentArray.count
+        return titleArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0)
-        let dictKey = Array(paymentArray.keys)[indexPath.row]
-        let dictValue = Array(paymentArray.values)[indexPath.row]
-        cell0?.textLabel?.text = dictKey
-        cell0?.detailTextLabel?.text = dictValue
+        cell0?.textLabel?.text = titleArray[indexPath.row]
         return cell0!
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "PAYMENT METHOD"
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

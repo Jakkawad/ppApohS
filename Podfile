@@ -8,6 +8,7 @@ pod 'Alamofire'
 pod 'ImageSlideshow/Alamofire'
 pod 'AlamofireImage'
 pod 'SwiftKeychainWrapper'
+pod 'FMDB'
 end
 
 target 'ShopAppTests' do

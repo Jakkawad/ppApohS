@@ -8,56 +8,65 @@
 
 import UIKit
 
-class CartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+class CartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CartTableViewCellDelegate {
+    
+    var numberOfArray: Int!
+    
     @IBOutlet weak var tableView:UITableView!
     
+//    @IBAction func btnNegative(_ sender: UIButton) {
+//        print("-")
+//    }
+//    
+//    @IBAction func btnPlus() {
+//        print("+")
+//    }
+
+    func reloadSection(number: Int, action: String) {
+        print("reload")
+//        var product = productArray[number]
+//        let quilty = Int(product["quilty"]!)
+//        if action == "Plus" {
+//            print("+")
+//            quilty! + 1
+//            print(quilty)
+//        } else {
+//            print("-")
+//            quilty! - 1
+//            print(quilty)
+//        }
+        tableView.reloadSections(NSIndexSet(index: number) as IndexSet, with: .none)
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-//        return 2
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if section == 0 {
-//            return 1
-//        } else {
-//            return 1
-//        }
-        return 9
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0)
-            return cell0!
-        } else {
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: tableCell1)
-            return cell1!
-        }
+//        let product = productArray[indexPath.section]
+        let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0) as? CartTableViewCell
+//        cell0?.lblName.text = product["name"]
+//        cell0?.txtQuilty.text = product["quilty"]
+//        cell0?.quilty = Int(product["quilty"]!)!
+        cell0?.numberOfArray = indexPath.section
+        cell0?.delegate = self
+        return cell0!
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 102
-        } else {
-            return 72
-        }
+        return 72
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return CGFloat.leastNormalMagnitude
-        }
-        return 20
-    }
     
-    override func viewWillAppear(_ animated: Bool) {
-//        self.navigationController?.navigationBar.isTranslucent = false
-//        self.automaticallyAdjustsScrollViewInsets = false
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.allowsSelection = false
         // Do any additional setup after loading the view.
     }
 
