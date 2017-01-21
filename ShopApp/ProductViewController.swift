@@ -14,6 +14,15 @@ class ProductViewController: UIViewController, UICollectionViewDataSource, UICol
     
     @IBOutlet weak var collectionView:UICollectionView!
     
+    @IBAction func unWindSort(segue: UIStoryboardSegue) {
+        if let sortVC = segue.source as? SortViewController {
+            let index = sortVC.tableView.indexPathForSelectedRow
+            let cell = sortVC.tableView.cellForRow(at: index!)
+            let msg = cell?.textLabel?.text
+            print(msg!)
+        }
+    }
+    
     @IBAction func btnGrid(_ sender: Any) {
         print("Grid")
     }
@@ -24,11 +33,12 @@ class ProductViewController: UIViewController, UICollectionViewDataSource, UICol
     
     @IBAction func btnSort(_ sender: Any) {
         print("Sort")
+        performSegue(withIdentifier: "SortSegue", sender: self)
     }
     
     @IBAction func btnFilter(_ sender: Any) {
         print("Filter")
-        performSegue(withIdentifier: "FilterProductSegue", sender: self)
+        performSegue(withIdentifier: "FilterSegue", sender: self)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

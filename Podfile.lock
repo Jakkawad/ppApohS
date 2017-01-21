@@ -10,6 +10,7 @@ PODS:
     - ImageSlideshow/Core
   - ImageSlideshow/Core (1.0.0)
   - SwiftKeychainWrapper (3.0.1)
+  - SwiftRangeSlider (0.5.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - FMDB
   - ImageSlideshow/Alamofire
   - SwiftKeychainWrapper
+  - SwiftRangeSlider
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
@@ -24,7 +26,8 @@ SPEC CHECKSUMS:
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   ImageSlideshow: 2787e10e202b79ecf5348a205c539fcc5bb8e62b
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
+  SwiftRangeSlider: 874a45b07ae7a42aedd5510f8622ba2e10c88594
 
-PODFILE CHECKSUM: 7dbe8cf6ec9161f4cb1759a3a7729725dc6f09ba
+PODFILE CHECKSUM: 27553a8e89f7110aebb3341476973d0ea375b083
 
 COCOAPODS: 1.1.1

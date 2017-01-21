@@ -8,9 +8,17 @@
 
 import UIKit
 
-class ChangePasswordViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ChangePasswordViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ChangePasswordTableViewCellDelegate {
 
+    var titleArray = ["รหัสผ่านเดิม", "รหัสผ่านใหม่", "ยืนยันรหัสผ่านใหม่"]
+    
     @IBOutlet weak var tableView:UITableView!
+    
+    func returnValueText(string: String, number: Int) {
+//        print("Text: \(string)")
+//        print("Number: \(number)")
+        print("Edit: \(titleArray[number]) value: \(string)")
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -21,7 +29,10 @@ class ChangePasswordViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0)
+        let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0) as? ChangePasswordTableViewCell
+        cell0?.lblTitle.text = titleArray[indexPath.row]
+        cell0?.numberOfArray = indexPath.row
+        cell0?.delegate = self
         return cell0!
     }
     

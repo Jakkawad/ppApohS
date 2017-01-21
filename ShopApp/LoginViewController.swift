@@ -10,10 +10,16 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var txtUsername: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
+    
     @IBAction func btnDismiss(_ sender: UITapGestureRecognizer) {
         self.dismiss(animated: false, completion: nil)
     }
     
+    @IBAction func btnLogin(_ sender: UITapGestureRecognizer) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

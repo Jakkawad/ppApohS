@@ -44,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftRangeSlider.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -57,7 +62,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2E26F9DD883AAAA35D91E13D797591E2</key>
+		<key>30A3C6B7D5738DD504CE73A2248C17FD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>511D4073A092C652DF78484E99143C57</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +87,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
+		<key>8AFC0787C51FDBBB6A2707ED14E476DE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B9B4C3A2CD54334DEAC90566733CBCD0</key>
+		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "80FBA8831CD2382B9CCD7B7D9934F94B"
-               BuildableName = "Pods_ShopAppTests.framework"
-               BlueprintName = "Pods-ShopAppTests"
+               BlueprintIdentifier = "8AFC0787C51FDBBB6A2707ED14E476DE"
+               BuildableName = "SwiftRangeSlider.framework"
+               BlueprintName = "SwiftRangeSlider"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "80FBA8831CD2382B9CCD7B7D9934F94B"
-            BuildableName = "Pods_ShopAppTests.framework"
-            BlueprintName = "Pods-ShopAppTests"
+            BlueprintIdentifier = "8AFC0787C51FDBBB6A2707ED14E476DE"
+            BuildableName = "SwiftRangeSlider.framework"
+            BlueprintName = "SwiftRangeSlider"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -97,7 +97,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         slideshow.pageControlPosition = PageControlPosition.underScrollView
         slideshow.pageControl.currentPageIndicatorTintColor = UIColor.lightGray;
         slideshow.pageControl.pageIndicatorTintColor = UIColor.black;
-        slideshow.contentScaleMode = UIViewContentMode.scaleAspectFill
+        slideshow.contentScaleMode = UIViewContentMode.scaleAspectFit
         
         slideshow.setImageInputs(localSource)
         // Do any additional setup after loading the view.

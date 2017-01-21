@@ -13,3 +13,6 @@ var tableCell1 = "tableCell1"
 var tableCell2 = "tableCell2"
 var tableCell3 = "tableCell3"
 var tableCell4 = "tableCell4"
+
+
+typealias DownloadComplete = () -> ()

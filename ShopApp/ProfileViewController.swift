@@ -8,9 +8,17 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ProfileTableViewCellDelegate {
 
+    var titleArray = ["ชื่อโปรไฟล์", "อีเมล", "ชื่อ-นามสกุล", "ที่อยู่", "แขวง/ตำบล", "เขต/อำเภอ", "จังหวัด", "รหัสไปรษณีย์", "เบอร์โทรศัพท์"]
+    
     @IBOutlet weak var tableView:UITableView!
+    
+    func returnValueText(string: String, number: Int) {
+//        print("Text: \(string)")
+//        print("Number: \(number)")
+        print("Edit: \(titleArray[number]) value: \(string)")
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -21,13 +29,17 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0)
+        let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0) as? ProfileTableViewCell
+        cell0?.lblTitle.text = titleArray[indexPath.row]
+        cell0?.delegate = self
+        cell0?.numberOfArray = indexPath.row
         return cell0!
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.allowsSelection = false
         // Do any additional setup after loading the view.
     }
 

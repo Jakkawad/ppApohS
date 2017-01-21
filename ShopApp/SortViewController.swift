@@ -1,32 +1,21 @@
 //
-//  AddShippingViewController.swift
+//  SortViewController.swift
 //  ShopApp
 //
-//  Created by Jakkawad Chaiplee on 1/18/2560 BE.
+//  Created by Jakkawad Chaiplee on 1/20/2560 BE.
 //  Copyright © 2560 Jakkawad Chaiplee. All rights reserved.
 //
 
 import UIKit
 
-class AddShippingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddShippingTableViewCellDelegate {
+class SortViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var titleArray = ["ชื่อ-นามสกุล", "ที่อยู่", "แขวง/ตำบล", "เขต/อำเภอ", "จังหวัด", "รหัสไฟรษณีย์", "เบอร์โทรศัพท์"]
-    var numberOfArray: Int!
+    var titleArray = ["ราคาจากน้อยไปมาก", "ราคาจากมากไปน้อย", "เรียงตามอันดับตัวอักษร A-Z", "เรียงตามอันดับตัวอักษร Z-A"]
     
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func btnCancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func btnSave(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func returnValueText(string: String, number: Int) {
-//        print("Text: \(string)")
-//        print("Number: \(number)")
-        print("Edit: \(titleArray[number]) value: \(string)")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -38,16 +27,25 @@ class AddShippingViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0) as? AddShippingTableViewCell
-        cell0?.lblTitle?.text = titleArray[indexPath.row]
-        cell0?.delegate = self
-        cell0?.numberOfArray = indexPath.row
+        let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0)
+        cell0?.textLabel?.text = titleArray[indexPath.row]
         return cell0!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print(titleArray[indexPath.row])
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.accessoryType = .checkmark
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Sort By"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 

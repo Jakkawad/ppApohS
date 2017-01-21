@@ -7,7 +7,17 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class HomeCollectionViewCell1: UICollectionViewCell {
     
+    var product: Product!
+    
+    @IBOutlet weak var imageViewProduct: UIImageView!
+    @IBOutlet weak var lblProductPrice: UILabel!
+    
+    func configureCell(product: Product) {
+        lblProductPrice.text = "$ \(product.nat_price)"
+        imageViewProduct.af_setImage(withURL: NSURL(string: "http://www.all2built.com/static/img/\(product.imageShow_cover)") as! URL)
+    }
 }
