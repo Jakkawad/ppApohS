@@ -73,6 +73,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         self.tableView.separatorColor = UIColor.clear
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        self.tableView.allowsSelection = false
         
         // Do any additional setup after loading the view.
     }

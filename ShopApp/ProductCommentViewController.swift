@@ -1,5 +1,5 @@
 //
-//  EditProductViewController.swift
+//  ProductCommentViewController.swift
 //  ShopApp
 //
 //  Created by Jakkawad Chaiplee on 1/23/2560 BE.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditProductViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProductCommentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,12 +17,16 @@ class EditProductViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0)
         return cell0!
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     override func viewDidLoad() {

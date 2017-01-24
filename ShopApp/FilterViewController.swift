@@ -101,6 +101,7 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
         if indexPath.section == 0 {
             let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0) as? FilterSliderTableViewCell
             cell0?.delegate = self
+            cell0?.selectionStyle = .none
             return cell0!
         } else {
             let cell1 = tableView.dequeueReusableCell(withIdentifier: tableCell1)
