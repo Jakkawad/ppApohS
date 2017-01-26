@@ -7,10 +7,29 @@
 //
 
 import UIKit
+import Alamofire
 
-class ProductViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ProductViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, SortViewControllerDelegate, FilterValueDelegate {
 
-    var tableObjects: Int!
+    var product: Product!
+    var products = [Product]()
+    
+    var productSelected: Product!
+    
+    var priceLower: Int!
+    var priceUpper: Int!
+    var optionValue1: String!
+    var optionValue2: String!
+    var optionValue3: String!
+    var optionValue4: String!
+    var optionValue5: String!
+    
+    var isGrid: Bool = true
+    var isList: Bool = false
+    
+    let gridFlowLayout = ProductGirdLayout()
+    let listFlowLayout = ProductListLayout()
+
     
     @IBOutlet weak var collectionView:UICollectionView!
     
@@ -25,20 +44,67 @@ class ProductViewController: UIViewController, UICollectionViewDataSource, UICol
     
     @IBAction func btnGrid(_ sender: Any) {
         print("Grid")
+        
     }
     
     @IBAction func btnList(_ sender: Any) {
         print("List")
+        
     }
     
     @IBAction func btnSort(_ sender: Any) {
         print("Sort")
-        performSegue(withIdentifier: "SortSegue", sender: self)
+//        performSegue(withIdentifier: "SortSegue", sender: self)
+        let SortVC: SortViewController = storyboard?.instantiateViewController(withIdentifier: "SortViewController") as! SortViewController
+        SortVC.delegate = self
+        let navigationController = UINavigationController(rootViewController: SortVC)
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     @IBAction func btnFilter(_ sender: Any) {
         print("Filter")
-        performSegue(withIdentifier: "FilterSegue", sender: self)
+//        performSegue(withIdentifier: "FilterSegue", sender: self)
+        let FilterVC: FilterViewController = storyboard?.instantiateViewController(withIdentifier: "FilterViewController") as! FilterViewController
+        FilterVC.delegate = self
+        let navigationController = UINavigationController(rootViewController: FilterVC)
+        
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    func loadJSON(completed:@escaping DownloadComplete) {
+        Alamofire.request("http://www.all2built.com/api/v2/product/").responseJSON { response in
+            if let result = response.result.value as? Dictionary<String, AnyObject> {
+                if let product = result["product"] as? [Dictionary<String, AnyObject>] {
+                    for obj in product {
+                        let product = Product(productDictionary: obj)
+                        self.products.append(product)
+                    }
+                    self.collectionView.reloadData()
+                }
+            }
+            completed()
+        }
+    }
+    
+    func getFilter(lower: Int, upper: Int, option1: String, option2: String, option3: String, option4: String, option5: String) {
+//        print("lower: \(lower)")
+//        print("upper: \(upper)")
+//        print("option1: \(option1)")
+//        print("option2: \(option2)")
+//        print("option3: \(option3)")
+//        print("option4: \(option4)")
+//        print("option5: \(option5)")
+        priceLower = lower
+        priceUpper = upper
+        optionValue1 = option1
+        optionValue2 = option2
+        optionValue3 = option3
+        optionValue4 = option4
+        optionValue5 = option5
+    }
+    
+    func getSort(string: String) {
+        print("string: \(string)")
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -46,16 +112,26 @@ class ProductViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell0 = collectionView.dequeueReusableCell(withReuseIdentifier: tableCell0, for: indexPath)
-        return cell0
+        let product = products[indexPath.row]
+        let cell0 = collectionView.dequeueReusableCell(withReuseIdentifier: tableCell0, for: indexPath) as? ProductGridCollectionViewCell
+        cell0?.configureCell(product: product)
+        return cell0!
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let product = products[indexPath.row]
+        productSelected = product
         performSegue(withIdentifier: "ProductDetailSegue", sender: self)
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -66,7 +142,11 @@ class ProductViewController: UIViewController, UICollectionViewDataSource, UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        loadJSON {
+            
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -76,14 +156,18 @@ class ProductViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ProductDetailSegue" {
+            let productDetailVC = segue.destination as? ProductDetailViewController
+            productDetailVC?.product = productSelected
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

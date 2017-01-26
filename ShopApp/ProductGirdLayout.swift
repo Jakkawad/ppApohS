@@ -1,20 +1,14 @@
 //
-//  HomeCollectionViewLayout.swift
+//  ProductGirdLayout.swift
 //  ShopApp
 //
-//  Created by Jakkawad Chaiplee on 1/12/2560 BE.
+//  Created by Jakkawad Chaiplee on 1/26/2560 BE.
 //  Copyright © 2560 Jakkawad Chaiplee. All rights reserved.
 //
 
 import UIKit
 
-protocol HomeCollectionViewLayoutDelegate {
-    func getHeight(height: Double)
-}
-
-class HomeCollectionViewLayout: UICollectionViewFlowLayout {
-
-    var delegate: HomeCollectionViewLayoutDelegate?
+class ProductGirdLayout: UICollectionViewFlowLayout {
     
     var numberOfItemsPerRow: Int = 2 {
         didSet {
@@ -36,7 +30,8 @@ class HomeCollectionViewLayout: UICollectionViewFlowLayout {
             }
             itemSize = newItemSize
 //            print("itemSize: \(itemSize)")
-            delegate?.getHeight(height: Double(newItemSize.height))
         }
     }
+    
 }
+

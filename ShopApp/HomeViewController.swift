@@ -22,9 +22,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func getHeight(height: Double) {
-        let heightResult: Double = (height * 5) + (5 * 10) + (6 * 5)
+        let heightResult: Double = (height * 3) + (5 * 10) + (6 * 5)
         collectionItemHeight = Double(heightResult)
+//        print("itemHeight: \(collectionItemHeight)")
         collectionCell = CGFloat(collectionItemHeight)
+        print("collectionCell: \(collectionCell)")
         tableView.reloadSections(NSIndexSet(index: 2) as IndexSet, with: .none)
     }
     
@@ -63,8 +65,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         } else if indexPath.section == 1 {
             return 120
         } else {
-//            print(collectionCell)
-            return collectionCell
+            print("heightCell: \(collectionCell)")
+            return collectionCell//992.5
         }
     }
     
@@ -90,7 +92,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CategorySegue" {
-            let productAllVC = segue.destination as? ProductViewController
+//            let productAllVC = segue.destination as? ProductViewController
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol SortViewControllerDelegate {
+    func getSort(string: String)
+}
+
 class SortViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    var delegate: SortViewControllerDelegate? = nil
+    
     var titleArray = ["ราคาจากน้อยไปมาก", "ราคาจากมากไปน้อย", "เรียงตามอันดับตัวอักษร A-Z", "เรียงตามอันดับตัวอักษร Z-A"]
     
     @IBOutlet weak var tableView: UITableView!
@@ -34,9 +40,11 @@ class SortViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        print(titleArray[indexPath.row])
+        delegate?.getSort(string: titleArray[indexPath.row])
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.accessoryType = .checkmark
         }
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -45,7 +53,7 @@ class SortViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
     }
 

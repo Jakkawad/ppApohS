@@ -17,7 +17,13 @@ class HomeCollectionViewCell1: UICollectionViewCell {
     @IBOutlet weak var lblProductPrice: UILabel!
     
     func configureCell(product: Product) {
-        lblProductPrice.text = "$ \(product.nat_price)"
+//        lblProductPrice.text = "$ \(product.nat_price)"
+        let text1 = labelStrikethrough(text: product.nat_price)
+        let text2 = NSMutableAttributedString(string: "   \(product.snat_price)")
+        let combination = NSMutableAttributedString()
+        combination.append(text1)
+        combination.append(text2)
+        lblProductPrice.attributedText = combination
         imageViewProduct.af_setImage(withURL: NSURL(string: "http://www.all2built.com/static/img/\(product.imageShow_cover)") as! URL)
     }
 }

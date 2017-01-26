@@ -1,20 +1,21 @@
 //
-//  HomeCollectionViewCell0.swift
+//  MoreProductCollectionViewCell.swift
 //  ShopApp
 //
-//  Created by Jakkawad Chaiplee on 1/12/2560 BE.
+//  Created by Jakkawad Chaiplee on 1/25/2560 BE.
 //  Copyright © 2560 Jakkawad Chaiplee. All rights reserved.
 //
 
 import UIKit
 import AlamofireImage
 
-class HomeCollectionViewCell0: UICollectionViewCell {
+class MoreProductCollectionViewCell: UICollectionViewCell {
     
     var product: Product!
     
-    @IBOutlet weak var imageViewProduct: UIImageView!
+    @IBOutlet weak var lblProductName: UILabel!
     @IBOutlet weak var lblProductPrice: UILabel!
+    @IBOutlet weak var imageViewProduct: UIImageView!
     
     func configureCell(product: Product) {
         let text1 = labelStrikethrough(text: product.nat_price)

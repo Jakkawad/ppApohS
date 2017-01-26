@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol FilterValueDelegate {
+    func getFilter(lower: Int, upper: Int, option1: String, option2: String, option3: String, option4: String, option5: String)
+}
 struct FilterOptionType {
     var sectionName: String!
     var sectionValue: [String]!
 }
 
 class FilterViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FilterSliderTableViewCellDelegate {
+    
+    var delegate: FilterValueDelegate?
     
     var priceLowerStart: Int!
     var priceUpperStart: Int!
@@ -47,17 +52,33 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBAction func btnSend(_ sender: Any) {
         if priceLower == nil && priceUpper == nil {
-            print("nil")
+//            print("nil")
             priceLower = 100
             priceUpper = 9000
         }
-        print("lower: \(priceLower), upper: \(priceUpper)")
-        print("$$$$$$$$$")
-        print("option1: \(optionSelectValue1)")
-        print("option2: \(optionSelectValue2)")
-        print("option3: \(optionSelectValue3)")
-        print("option4: \(optionSelectValue4)")
-        print("option5: \(optionSelectValue5)")
+//        print("lower: \(priceLower), upper: \(priceUpper)")
+//        print("$$$$$$$$$")
+//        print("option1: \(optionSelectValue1)")
+//        print("option2: \(optionSelectValue2)")
+//        print("option3: \(optionSelectValue3)")
+//        print("option4: \(optionSelectValue4)")
+//        print("option5: \(optionSelectValue5)")
+        if optionSelectValue1 == nil {
+            optionSelectValue1 = "nil"
+        }
+        if optionSelectValue2 == nil {
+            optionSelectValue2 = "nil"
+        }
+        if optionSelectValue3 == nil {
+            optionSelectValue3 = "nil"
+        }
+        if optionSelectValue4 == nil {
+            optionSelectValue4 = "nil"
+        }
+        if optionSelectValue5 == nil {
+            optionSelectValue5 = "nil"
+        }
+        delegate?.getFilter(lower: priceLower, upper: priceUpper, option1: optionSelectValue1, option2: optionSelectValue2, option3: optionSelectValue3, option4: optionSelectValue4, option5: optionSelectValue5)
         dismiss(animated: true, completion: nil)
     }
     

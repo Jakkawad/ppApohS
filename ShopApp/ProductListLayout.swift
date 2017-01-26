@@ -1,22 +1,16 @@
 //
-//  HomeCollectionViewLayout.swift
+//  ProductListLayout.swift
 //  ShopApp
 //
-//  Created by Jakkawad Chaiplee on 1/12/2560 BE.
+//  Created by Jakkawad Chaiplee on 1/25/2560 BE.
 //  Copyright © 2560 Jakkawad Chaiplee. All rights reserved.
 //
 
 import UIKit
 
-protocol HomeCollectionViewLayoutDelegate {
-    func getHeight(height: Double)
-}
-
-class HomeCollectionViewLayout: UICollectionViewFlowLayout {
-
-    var delegate: HomeCollectionViewLayoutDelegate?
+class ProductListLayout: UICollectionViewFlowLayout {
     
-    var numberOfItemsPerRow: Int = 2 {
+    var numberOfItemsPerRow: Int = 1 {
         didSet {
             invalidateLayout()
         }
@@ -30,13 +24,17 @@ class HomeCollectionViewLayout: UICollectionViewFlowLayout {
             let itemsPersRow = CGFloat(max(numberOfItemsPerRow, 1))
             let totalSpacing = minimumInteritemSpacing * (itemsPersRow - 1.0)
             newItemSize.width = (collectionView.bounds.size.width - totalSpacing) / itemsPersRow
+//            print("width: \(newItemSize.width)")
+//            print("bounds: \(collectionView.bounds.size.width)")
             if itemSize.height > 0 {
-                let itemAspectRatio = itemSize.width / itemSize.height
-                newItemSize.height = newItemSize.width / itemAspectRatio
+//                let itemAspectRatio = itemSize.width / itemSize.height
+//                print("ratio: \(itemAspectRatio)")
+                newItemSize.height = 200//newItemSize.width / itemAspectRatio
+//                print("height: \(newItemSize.height)")
             }
             itemSize = newItemSize
 //            print("itemSize: \(itemSize)")
-            delegate?.getHeight(height: Double(newItemSize.height))
         }
     }
+    
 }

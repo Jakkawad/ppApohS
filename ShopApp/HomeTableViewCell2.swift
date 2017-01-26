@@ -41,6 +41,7 @@ class HomeTableViewCell2: UITableViewCell, UICollectionViewDataSource, UICollect
     
     func getHeight(height: Double) {
         itemHeight = height
+//        print("itemHeight")
         delegate?.getHeight(height: itemHeight)
     }
     
@@ -55,8 +56,8 @@ class HomeTableViewCell2: UITableViewCell, UICollectionViewDataSource, UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let product = products[indexPath.row]
         let cell0 = collectionView.dequeueReusableCell(withReuseIdentifier: "tableCell0", for: indexPath) as? HomeCollectionViewCell1
-        cell0?.layer.borderWidth = 2.0
-        cell0?.layer.borderColor = UIColor.orange.cgColor
+//        cell0?.layer.borderWidth = 2.0
+//        cell0?.layer.borderColor = UIColor.orange.cgColor
         cell0?.configureCell(product: product)
         return cell0!
     }

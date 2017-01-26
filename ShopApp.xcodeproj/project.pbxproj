@@ -19,6 +19,9 @@
 		3122B9551E2F604000693B28 /* ViewBorderGray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3122B9541E2F604000693B28 /* ViewBorderGray.swift */; };
 		3122B9571E2F65D800693B28 /* AddShippingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3122B9561E2F65D800693B28 /* AddShippingViewController.swift */; };
 		3122B9591E2F684B00693B28 /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = 3122B9581E2F684B00693B28 /* success.png */; };
+		312AB3BC1E37CBFC0095C4EE /* MoreProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312AB3BB1E37CBFC0095C4EE /* MoreProductCollectionViewCell.swift */; };
+		312AB41D1E385DBE0095C4EE /* ProductListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312AB41C1E385DBE0095C4EE /* ProductListLayout.swift */; };
+		312AB4551E3A3D600095C4EE /* ProductGirdLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312AB4541E3A3D600095C4EE /* ProductGirdLayout.swift */; };
 		3132BC9E1DE2B52D0080E92D /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132BC9D1DE2B52D0080E92D /* FilterViewController.swift */; };
 		3146FC4C1DE2D748001EA762 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3146FC4B1DE2D748001EA762 /* ProfileViewController.swift */; };
 		317DECB11DCDA70200B8F447 /* polar_bear_penguin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 317DECB01DCDA70200B8F447 /* polar_bear_penguin.jpg */; };
@@ -85,6 +88,9 @@
 		31DAA88F1E2CD5E400712987 /* ProfileCircular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DAA88E1E2CD5E400712987 /* ProfileCircular.swift */; };
 		31DAA8911E2CD74300712987 /* icon-coin.png in Resources */ = {isa = PBXBuildFile; fileRef = 31DAA8901E2CD74300712987 /* icon-coin.png */; };
 		31DAA8931E2CD7D200712987 /* ProfileGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DAA8921E2CD7D200712987 /* ProfileGridLayout.swift */; };
+		31DCDEA61E37A90000555691 /* blur-bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31DCDEA51E37A90000555691 /* blur-bg.jpg */; };
+		31DCDED81E37BCB300555691 /* ProductGridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DCDED71E37BCB300555691 /* ProductGridCollectionViewCell.swift */; };
+		31DCDEDA1E37BCBD00555691 /* ProductListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DCDED91E37BCBD00555691 /* ProductListCollectionViewCell.swift */; };
 		FBD137D264618D3EB612EC2C /* Pods_ShopAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CE26B57D7E9C56B42B0F8E /* Pods_ShopAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +117,9 @@
 		3122B9541E2F604000693B28 /* ViewBorderGray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewBorderGray.swift; sourceTree = "<group>"; };
 		3122B9561E2F65D800693B28 /* AddShippingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddShippingViewController.swift; sourceTree = "<group>"; };
 		3122B9581E2F684B00693B28 /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success.png; sourceTree = "<group>"; };
+		312AB3BB1E37CBFC0095C4EE /* MoreProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		312AB41C1E385DBE0095C4EE /* ProductListLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListLayout.swift; sourceTree = "<group>"; };
+		312AB4541E3A3D600095C4EE /* ProductGirdLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductGirdLayout.swift; sourceTree = "<group>"; };
 		3132BC9D1DE2B52D0080E92D /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		3146FC4B1DE2D748001EA762 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		317DECB01DCDA70200B8F447 /* polar_bear_penguin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = polar_bear_penguin.jpg; sourceTree = "<group>"; };
@@ -181,6 +190,9 @@
 		31DAA88E1E2CD5E400712987 /* ProfileCircular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCircular.swift; sourceTree = "<group>"; };
 		31DAA8901E2CD74300712987 /* icon-coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-coin.png"; sourceTree = "<group>"; };
 		31DAA8921E2CD7D200712987 /* ProfileGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileGridLayout.swift; sourceTree = "<group>"; };
+		31DCDEA51E37A90000555691 /* blur-bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blur-bg.jpg"; sourceTree = "<group>"; };
+		31DCDED71E37BCB300555691 /* ProductGridCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductGridCollectionViewCell.swift; sourceTree = "<group>"; };
+		31DCDED91E37BCBD00555691 /* ProductListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListCollectionViewCell.swift; sourceTree = "<group>"; };
 		44CE26B57D7E9C56B42B0F8E /* Pods_ShopAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF2616DBBF49FBA63E11BBFC /* Pods-ShopAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShopAppTests/Pods-ShopAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		DFD1301772C991D650F72468 /* Pods-ShopApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShopApp/Pods-ShopApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -208,6 +220,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		312AB3BD1E37CC700095C4EE /* MoreProduct */ = {
+			isa = PBXGroup;
+			children = (
+				312AB3BB1E37CBFC0095C4EE /* MoreProductCollectionViewCell.swift */,
+			);
+			name = MoreProduct;
+			sourceTree = "<group>";
+		};
 		3191684C1DE5880400C4E68F /* Filter */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +268,7 @@
 		31B6935C1DDE9BE000950B54 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				31DCDEA51E37A90000555691 /* blur-bg.jpg */,
 				31DAA8461E289D1400712987 /* login-bg.jpg */,
 				31DAA84E1E28BE8900712987 /* login-bg-60.jpg */,
 				31C864BB1DE2EC4200A98A4B /* Icon */,
@@ -273,6 +294,8 @@
 				31209EEC1DE2A56000553B52 /* GridFlowLayout.swift */,
 				31DAA83D1E2786C700712987 /* HomeCollectionViewLayout.swift */,
 				31DAA8921E2CD7D200712987 /* ProfileGridLayout.swift */,
+				312AB41C1E385DBE0095C4EE /* ProductListLayout.swift */,
+				312AB4541E3A3D600095C4EE /* ProductGirdLayout.swift */,
 				31DAA84A1E28A56A00712987 /* ImageSetAlpha.swift */,
 				31DAA84C1E28BA7A00712987 /* ViewBorder.swift */,
 				31D435171E311ABE00177958 /* ViewBounds.swift */,
@@ -387,6 +410,8 @@
 			isa = PBXGroup;
 			children = (
 				31BA70CE1DC318BB009A72D6 /* ProductViewController.swift */,
+				31DCDED71E37BCB300555691 /* ProductGridCollectionViewCell.swift */,
+				31DCDED91E37BCBD00555691 /* ProductListCollectionViewCell.swift */,
 			);
 			name = Product;
 			sourceTree = "<group>";
@@ -400,6 +425,7 @@
 				31A2D7A21DD47ABB00F9394D /* ProductDetailCell1TableViewCell.swift */,
 				31A2D7A41DD6DE1F00F9394D /* ProductDetailCell0TableViewCell.swift */,
 				31A148531E35AE9900C5C607 /* ProductCommentViewController.swift */,
+				312AB3BD1E37CC700095C4EE /* MoreProduct */,
 			);
 			name = ProductDetail;
 			sourceTree = "<group>";
@@ -609,6 +635,7 @@
 			files = (
 				31BA70A61DC3090D009A72D6 /* LaunchScreen.storyboard in Resources */,
 				317DECB11DCDA70200B8F447 /* polar_bear_penguin.jpg in Resources */,
+				31DCDEA61E37A90000555691 /* blur-bg.jpg in Resources */,
 				31B693591DDE9BDB00950B54 /* pink-shirt.jpg in Resources */,
 				31A2D79F1DD1D4CA00F9394D /* 427-cobra.jpg in Resources */,
 				31C864B31DE2E08000A98A4B /* alarm-clock.png in Resources */,
@@ -740,6 +767,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31A2D7A51DD6DE1F00F9394D /* ProductDetailCell0TableViewCell.swift in Sources */,
+				312AB41D1E385DBE0095C4EE /* ProductListLayout.swift in Sources */,
 				31D4351B1E3126BE00177958 /* AddShippingTableViewCell.swift in Sources */,
 				31D435271E32051900177958 /* FilterOptionViewController.swift in Sources */,
 				31DAA88F1E2CD5E400712987 /* ProfileCircular.swift in Sources */,
@@ -763,8 +791,10 @@
 				31BA70C51DC312F3009A72D6 /* Constant.swift in Sources */,
 				3106B6661DFFF15B00B8FEF3 /* DropDownTableViewCell.swift in Sources */,
 				31A2D7A31DD47ABB00F9394D /* ProductDetailCell1TableViewCell.swift in Sources */,
+				312AB4551E3A3D600095C4EE /* ProductGirdLayout.swift in Sources */,
 				3132BC9E1DE2B52D0080E92D /* FilterViewController.swift in Sources */,
 				3122B9201E2F30FD00693B28 /* ViewCircular.swift in Sources */,
+				31DCDEDA1E37BCBD00555691 /* ProductListCollectionViewCell.swift in Sources */,
 				31DAA8431E27E2C900712987 /* HomeCollectionViewCell0.swift in Sources */,
 				31D435211E31BBBD00177958 /* ChangePasswordTableViewCell.swift in Sources */,
 				3191684E1DE82D7400C4E68F /* Product.swift in Sources */,
@@ -780,10 +810,12 @@
 				31BA70CF1DC318BB009A72D6 /* ProductViewController.swift in Sources */,
 				3122B9571E2F65D800693B28 /* AddShippingViewController.swift in Sources */,
 				31A2D7A11DD4658600F9394D /* ProductDetailCell3TableViewCell.swift in Sources */,
+				312AB3BC1E37CBFC0095C4EE /* MoreProductCollectionViewCell.swift in Sources */,
 				31DAA84B1E28A56A00712987 /* ImageSetAlpha.swift in Sources */,
 				31D435161E3117AE00177958 /* CartDoneViewController.swift in Sources */,
 				319FAA631DD9840800828893 /* WishlistViewController.swift in Sources */,
 				31D435251E32025700177958 /* FilterSliderTableViewCell.swift in Sources */,
+				31DCDED81E37BCB300555691 /* ProductGridCollectionViewCell.swift in Sources */,
 				31DAA83E1E2786C700712987 /* HomeCollectionViewLayout.swift in Sources */,
 				311AE2FA1E2739AD00FA92E1 /* HomeViewController.swift in Sources */,
 				31BA709C1DC3090D009A72D6 /* AppDelegate.swift in Sources */,

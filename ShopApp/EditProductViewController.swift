@@ -8,26 +8,53 @@
 
 import UIKit
 
-class EditProductViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+protocol EditProductViewControllerDelegate {
+    func getQulity(qulity: Int)
+}
 
-    @IBOutlet weak var tableView: UITableView!
+class EditProductViewController: UIViewController  {
+
+    var delegate: EditProductViewControllerDelegate?
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    var qulity: Int = 1
+    
+    
+    @IBAction func btnClose(_ sender: UITapGestureRecognizer) {
+        dismiss(animated: true, completion: nil)
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+    @IBOutlet weak var txtQulity: UITextField!
+    
+    @IBAction func btnPlus(_ sender: Any) {
+        qulity += 1
+        txtQulity.text = String(qulity)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0)
-        return cell0!
+    @IBAction func btnNegative(_ sender: Any) {
+        if qulity == 1 {
+            
+        } else {
+            qulity -= 1
+            txtQulity.text = String(qulity)
+        }
+    }
+    
+    @IBAction func btnApply(_ sender: Any) {
+        delegate?.getQulity(qulity: qulity)
+        dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        txtQulity.text = String(qulity)
+        
+//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = view.bounds
+//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        view.addSubview(blurEffectView)
+        
         // Do any additional setup after loading the view.
     }
 
