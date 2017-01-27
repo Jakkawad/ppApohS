@@ -30,6 +30,22 @@ class ProductViewController: UIViewController, UICollectionViewDataSource, UICol
     let gridFlowLayout = ProductGirdLayout()
     let listFlowLayout = ProductListLayout()
 
+    var isGridFlowLayoutUsed: Bool = false {
+        didSet {
+            
+        }
+    }
+    
+//    func setupGrid() {
+//        self.collectionView.collectionViewLayout.invalidateLayout()
+//        self.collectionView.setCollectionViewLayout(self.gridFlowLayout, animated: false)
+//    }
+//    
+//    func setupInitialLayout() {
+//        isGridFlowLayoutUsed = true
+//        collectionView.collectionViewLayout = gridFlowLayout
+//    }
+    
     
     @IBOutlet weak var collectionView:UICollectionView!
     
@@ -44,12 +60,32 @@ class ProductViewController: UIViewController, UICollectionViewDataSource, UICol
     
     @IBAction func btnGrid(_ sender: Any) {
         print("Grid")
-        
+        isGridFlowLayoutUsed = true
+        collectionView.reloadData()
+        self.collectionView.setCollectionViewLayout(self.gridFlowLayout, animated: false)
+//        collectionView.reloadSections(NSIndexSet(index: 0) as IndexSet)
+//        isGridFlowLayoutUsed = true
+//        collectionView.reloadData()
+//        UIView.animate(withDuration: 0.2) { () -> Void in
+//            self.collectionView.collectionViewLayout.invalidateLayout()
+//            self.collectionView.setCollectionViewLayout(self.gridFlowLayout, animated: false)
+//        }
+//        collectionView.reloadData()
     }
     
     @IBAction func btnList(_ sender: Any) {
         print("List")
-        
+        isGridFlowLayoutUsed = false
+        collectionView.reloadData()
+        self.collectionView.setCollectionViewLayout(self.listFlowLayout, animated: true)
+//        collectionView.reloadSections(NSIndexSet(index: 0) as IndexSet)
+//        isGridFlowLayoutUsed = false
+//        collectionView.reloadData()
+//        UIView.animate(withDuration: 0.2) { () -> Void in
+//            self.collectionView.collectionViewLayout.invalidateLayout()
+//            self.collectionView.setCollectionViewLayout(self.listFlowLayout, animated: true)
+//        }
+//        collectionView.reloadData()
     }
     
     @IBAction func btnSort(_ sender: Any) {
@@ -87,13 +123,6 @@ class ProductViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func getFilter(lower: Int, upper: Int, option1: String, option2: String, option3: String, option4: String, option5: String) {
-//        print("lower: \(lower)")
-//        print("upper: \(upper)")
-//        print("option1: \(option1)")
-//        print("option2: \(option2)")
-//        print("option3: \(option3)")
-//        print("option4: \(option4)")
-//        print("option5: \(option5)")
         priceLower = lower
         priceUpper = upper
         optionValue1 = option1
@@ -117,9 +146,26 @@ class ProductViewController: UIViewController, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let product = products[indexPath.row]
-        let cell0 = collectionView.dequeueReusableCell(withReuseIdentifier: tableCell0, for: indexPath) as? ProductGridCollectionViewCell
-        cell0?.configureCell(product: product)
-        return cell0!
+//        let cell0 = collectionView.dequeueReusableCell(withReuseIdentifier: tableCell0, for: indexPath) as? ProductGridCollectionViewCell
+//        cell0?.configureCell(product: product)
+//        return cell0!
+        var tableCell:String!
+        if isGridFlowLayoutUsed == true {
+//            print("Grid")
+            tableCell = "tableCell0"
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tableCell, for: indexPath) as! ProductGridCollectionViewCell
+            cell.configureCell(product: product)
+//            print("product: \(products[indexPath.row])")
+            return cell
+            
+        } else {
+//            print("List")
+            tableCell = "tableCell1"
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tableCell, for: indexPath) as! ProductListCollectionViewCell
+            cell.configureCell(product: product)
+//            print("product: \(products[indexPath.row])")
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -144,6 +190,10 @@ class ProductViewController: UIViewController, UICollectionViewDataSource, UICol
         super.viewDidLoad()
         
         
+//        setupGrid()
+        isGridFlowLayoutUsed = true
+        self.collectionView.setCollectionViewLayout(self.gridFlowLayout, animated: false)
+//        self.collectionView.collectionViewLayout.invalidateLayout()
         loadJSON {
             
         }

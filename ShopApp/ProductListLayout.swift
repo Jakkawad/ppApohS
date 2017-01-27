@@ -29,7 +29,7 @@ class ProductListLayout: UICollectionViewFlowLayout {
             if itemSize.height > 0 {
 //                let itemAspectRatio = itemSize.width / itemSize.height
 //                print("ratio: \(itemAspectRatio)")
-                newItemSize.height = 200//newItemSize.width / itemAspectRatio
+                newItemSize.height = 150//newItemSize.width / itemAspectRatio
 //                print("height: \(newItemSize.height)")
             }
             itemSize = newItemSize

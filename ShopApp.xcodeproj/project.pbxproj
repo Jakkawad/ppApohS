@@ -228,6 +228,15 @@
 			name = MoreProduct;
 			sourceTree = "<group>";
 		};
+		312AB4561E3AE6110095C4EE /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				31DAA8421E27E2C900712987 /* HomeCollectionViewCell0.swift */,
+				31DAA8441E27E2D000712987 /* HomeCollectionViewCell1.swift */,
+			);
+			name = CollectionView;
+			sourceTree = "<group>";
+		};
 		3191684C1DE5880400C4E68F /* Filter */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,8 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				311AE2F91E2739AD00FA92E1 /* HomeViewController.swift */,
-				31DAA8421E27E2C900712987 /* HomeCollectionViewCell0.swift */,
-				31DAA8441E27E2D000712987 /* HomeCollectionViewCell1.swift */,
+				312AB4561E3AE6110095C4EE /* CollectionView */,
 				31DAA8411E27E2AF00712987 /* TableView */,
 			);
 			name = Home;

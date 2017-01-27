@@ -14,15 +14,24 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var collectionItemHeight: Double = 0.0
     var collectionCell: CGFloat = 0.0
+    
+    var productDetailSelected: Product!
     // Protocol
+    
+    func getCollectionCell(product: Product) {
+//        print(product.name)
+        productDetailSelected = product
+        performSegue(withIdentifier: "ProductDetailSegue", sender: nil)
+    }
     
     func didSelectRow() {
         print("didselect")
         performSegue(withIdentifier: "ProductAllSegue", sender: nil)
     }
     
-    func getHeight(height: Double) {
-        let heightResult: Double = (height * 3) + (5 * 10) + (6 * 5)
+    func getHeight(height: Double, numberOfArray: Int) {
+        let numberOfRow = numberOfArray / 2
+        let heightResult: Double = (height * Double(numberOfRow)) + (5 * 10) + (6 * 5)
         collectionItemHeight = Double(heightResult)
 //        print("itemHeight: \(collectionItemHeight)")
         collectionCell = CGFloat(collectionItemHeight)
@@ -91,8 +100,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "CategorySegue" {
-//            let productAllVC = segue.destination as? ProductViewController
+        if segue.identifier == "ProductDetailSegue" {
+            let productDetailVC = segue.destination as? ProductDetailViewController
+            productDetailVC?.product = productDetailSelected
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

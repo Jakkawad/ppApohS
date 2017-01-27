@@ -8,12 +8,14 @@
 
 import UIKit
 import ImageSlideshow
+import AlamofireImage
 
 class ProductDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, EditProductViewControllerDelegate {
     
     var slideshowTransitioningDelegate: ZoomAnimatedTransitioningDelegate?
-    let localSource = [ImageSource(imageString: "pink-shirt.jpg")!, ImageSource(imageString: "white-shirt")!, ImageSource(imageString: "gray-shirt")!, ImageSource(imageString: "orange-shirt")!]
+//    let localSource = [ImageSource(imageString: "pink-shirt.jpg")!, ImageSource(imageString: "white-shirt")!, ImageSource(imageString: "gray-shirt")!, ImageSource(imageString: "orange-shirt")!]
 
+    var localSource = [AlamofireSource(urlString: "")]
     
     var product: Product!
     
@@ -86,6 +88,8 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
             }
         } else if indexPath.section == 1 {
             let cell2 = tableView.dequeueReusableCell(withIdentifier: tableCell1) as? ProductDetailCell1TableViewCell
+//            let attStr = try! NSAttributedString(data: "<b><i>\(product.detail)</i>,</b>".data(using: String.Encoding.unicode, allowLossyConversion: true)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+//            cell2?.lblDetail.attributedText = attStr
             cell2?.lblDetail.text = product.detail
 //            cell2?.lblDetail.text = "Lorem ipsum dolor sit amet, consectetur volutpat."
             cell2?.selectionStyle = .none
@@ -133,7 +137,13 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         // Effect
         self.title = product.name
         self.lblProductName.text = product.name
-        self.lblProductPrice.text = product.nat_price
+//        self.lblProductPrice.text = product.nat_price
+        let text1 = labelStrikethrough(text: product.nat_price)
+        let text2 = NSMutableAttributedString(string: "   \(product.snat_price)")
+        let combination = NSMutableAttributedString()
+        combination.append(text1)
+        combination.append(text2)
+        lblProductPrice.attributedText = combination
         // JSON
         
         // TableView no border
@@ -150,7 +160,9 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         slideshow.pageControl.pageIndicatorTintColor = UIColor.black;
         slideshow.contentScaleMode = UIViewContentMode.scaleAspectFit
         
-        slideshow.setImageInputs(localSource)
+//        slideshow.setImageInputs(localSource)
+        let image = "http://www.all2built.com/static/img/\(product.imageShow_cover)"
+        slideshow.setImageInputs([AlamofireSource(urlString: image)!])
         // Do any additional setup after loading the view.
     }
 

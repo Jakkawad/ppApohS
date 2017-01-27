@@ -23,6 +23,7 @@ class ProductListCollectionViewCell: UICollectionViewCell {
         combination.append(text1)
         combination.append(text2)
         lblProductPrice.attributedText = combination
+//        print(product.name)
         lblProductName.text = product.name
         imageViewProduct.af_setImage(withURL: NSURL(string: "http://www.all2built.com/static/img/\(product.imageShow_cover)") as! URL)
     }

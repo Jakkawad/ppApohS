@@ -10,7 +10,8 @@ import UIKit
 import Alamofire
 
 protocol HomeTableViewCell2Delegate {
-    func getHeight(height: Double)
+    func getHeight(height: Double, numberOfArray: Int)
+    func getCollectionCell(product: Product)
 }
 
 class HomeTableViewCell2: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, HomeCollectionViewLayoutDelegate {
@@ -42,7 +43,7 @@ class HomeTableViewCell2: UITableViewCell, UICollectionViewDataSource, UICollect
     func getHeight(height: Double) {
         itemHeight = height
 //        print("itemHeight")
-        delegate?.getHeight(height: itemHeight)
+        delegate?.getHeight(height: itemHeight, numberOfArray: products.count)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -63,7 +64,9 @@ class HomeTableViewCell2: UITableViewCell, UICollectionViewDataSource, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+//        print(indexPath.row)
+        let product = products[indexPath.row]
+        delegate?.getCollectionCell(product: product)
     }
     
     override func awakeFromNib() {
