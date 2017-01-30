@@ -34,6 +34,7 @@
 		31A2D7A11DD4658600F9394D /* ProductDetailCell3TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A2D7A01DD4658600F9394D /* ProductDetailCell3TableViewCell.swift */; };
 		31A2D7A31DD47ABB00F9394D /* ProductDetailCell1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A2D7A21DD47ABB00F9394D /* ProductDetailCell1TableViewCell.swift */; };
 		31A2D7A51DD6DE1F00F9394D /* ProductDetailCell0TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A2D7A41DD6DE1F00F9394D /* ProductDetailCell0TableViewCell.swift */; };
+		31AF082D1E3BA5750050EE9C /* cart.db in Resources */ = {isa = PBXBuildFile; fileRef = 31AF082C1E3BA5750050EE9C /* cart.db */; };
 		31B693581DDE9BDB00950B54 /* gray-shirt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31B693541DDE9BDB00950B54 /* gray-shirt.jpg */; };
 		31B693591DDE9BDB00950B54 /* pink-shirt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31B693551DDE9BDB00950B54 /* pink-shirt.jpg */; };
 		31B6935A1DDE9BDB00950B54 /* white-shirt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31B693561DDE9BDB00950B54 /* white-shirt.jpg */; };
@@ -132,6 +133,7 @@
 		31A2D7A01DD4658600F9394D /* ProductDetailCell3TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailCell3TableViewCell.swift; sourceTree = "<group>"; };
 		31A2D7A21DD47ABB00F9394D /* ProductDetailCell1TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailCell1TableViewCell.swift; sourceTree = "<group>"; };
 		31A2D7A41DD6DE1F00F9394D /* ProductDetailCell0TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailCell0TableViewCell.swift; sourceTree = "<group>"; };
+		31AF082C1E3BA5750050EE9C /* cart.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = cart.db; sourceTree = "<group>"; };
 		31B693541DDE9BDB00950B54 /* gray-shirt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "gray-shirt.jpg"; sourceTree = "<group>"; };
 		31B693551DDE9BDB00950B54 /* pink-shirt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "pink-shirt.jpg"; sourceTree = "<group>"; };
 		31B693561DDE9BDB00950B54 /* white-shirt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "white-shirt.jpg"; sourceTree = "<group>"; };
@@ -274,6 +276,14 @@
 			name = Wishlist;
 			sourceTree = "<group>";
 		};
+		31AF082B1E3BA2770050EE9C /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				31AF082C1E3BA5750050EE9C /* cart.db */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
 		31B6935C1DDE9BE000950B54 /* Image */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +350,7 @@
 				31B6935F1DDEB6BE00950B54 /* Extenstion */,
 				31BA70C01DC30EBC009A72D6 /* ViewController */,
 				31BA70BD1DC30DAB009A72D6 /* DataModel */,
+				31AF082B1E3BA2770050EE9C /* Resource */,
 				31BA709F1DC3090D009A72D6 /* Main.storyboard */,
 				31BA70C31DC312D2009A72D6 /* Class */,
 				31BA70A21DC3090D009A72D6 /* Assets.xcassets */,
@@ -662,6 +673,7 @@
 				31B6935A1DDE9BDB00950B54 /* white-shirt.jpg in Resources */,
 				31C864B61DE2E08000A98A4B /* bell.png in Resources */,
 				31B6935B1DDE9BDB00950B54 /* orange-shirt.jpg in Resources */,
+				31AF082D1E3BA5750050EE9C /* cart.db in Resources */,
 				31B693581DDE9BDB00950B54 /* gray-shirt.jpg in Resources */,
 				31C864B41DE2E08000A98A4B /* atomic.png in Resources */,
 			);

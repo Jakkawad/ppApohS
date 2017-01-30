@@ -25,7 +25,7 @@ class HomeTableViewCell2: UITableViewCell, UICollectionViewDataSource, UICollect
     @IBOutlet weak var collectionView: UICollectionView!
     
     func loadJSON(completed:@escaping DownloadComplete) {
-        Alamofire.request("http://www.all2built.com/api/v2/product/").responseJSON { response in
+        Alamofire.request("http://a2b.mul.pw/api/v2/product/").responseJSON { response in
             if let result = response.result.value as? Dictionary<String, AnyObject> {
                 if let product = result["product"] as? [Dictionary<String, AnyObject>] {
                     for obj in product {

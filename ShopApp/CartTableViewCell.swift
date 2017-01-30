@@ -9,32 +9,55 @@
 import UIKit
 
 protocol CartTableViewCellDelegate {
-    func reloadSection(number: Int, action: String)
+//    func reloadSection(number: Int, action: String)
+    func qulityPlus(qulity: Int, product_id: String)
+    func qulityNegative(qulity: Int, product_id: String)
 }
 
 class CartTableViewCell: UITableViewCell {
 
-    var numberOfArray: Int!
-    var quilty: Int!
+    var product: Product!
+    var product_id: String!
+    var product_qulity: Int = 1
+    var product_price: Int = 0
+    var total_price: Int = 0
     
     var delegate: CartTableViewCellDelegate?
     
-    @IBOutlet weak var lblName: UILabel!
-//    @IBOutlet weak var btnNegative: UIButton!
-    @IBOutlet weak var txtQuilty: UITextField!
+    
+    @IBOutlet weak var imageViewProduct: UIImageView!
+    @IBOutlet weak var lblProductName: UILabel!
+    @IBOutlet weak var txtProductQulity: UITextField!
+    @IBOutlet weak var lblProductPrice: UILabel!
+    
 //    @IBOutlet weak var btnPlus: UIButton!
     
     @IBAction func btnNegative(_ sender: UIButton) {
-//        if quilty == 1 {
-//            
-//        } else {
-//            delegate?.reloadSection(number: numberOfArray, action: "Negative")
-//        }
+        if product_qulity == 1 {
+            
+        } else {
+            product_qulity -= 1
+            total_price = product_price * product_qulity
+            txtProductQulity.text = String(product_qulity)
+            lblProductPrice.text = String(total_price)
+            delegate?.qulityNegative(qulity: product_qulity, product_id: product_id)
+        }
     }
     
-    
     @IBAction func btnPlus(_ sender: UIButton) {
-//        delegate?.reloadSection(number: numberOfArray, action: "Plus")
+        product_qulity += 1
+        total_price = product_price * product_qulity
+        txtProductQulity.text = String(product_qulity)
+        lblProductPrice.text = String(total_price)
+        delegate?.qulityPlus(qulity: product_qulity, product_id: product_id)
+    }
+    
+    func configureCell(product: Product, qulity: Int) {
+        product_id = product.id
+        product_price = Int(product.snat_price)!
+        lblProductName.text = product.name
+        txtProductQulity.text = String(qulity)
+        imageViewProduct.af_setImage(withURL: NSURL(string: "http://a2b.mul.pw/static/img/\(product.imageShow_cover)") as! URL)
     }
     
     override func awakeFromNib() {

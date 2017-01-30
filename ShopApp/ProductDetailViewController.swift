@@ -9,6 +9,7 @@
 import UIKit
 import ImageSlideshow
 import AlamofireImage
+import FMDB
 
 class ProductDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, EditProductViewControllerDelegate {
     
@@ -18,6 +19,10 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     var localSource = [AlamofireSource(urlString: "")]
     
     var product: Product!
+    
+    var database:FMDatabase!
+    var productInCart: [[String:String]] = []
+    var isInCart: Bool = false
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView:UITableView!
@@ -34,6 +39,30 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     
     func getQulity(qulity: Int) {
         print("qulity: \(qulity)")
+        print("product_id: \(product.id)")
+        var qulityInCart: Int!
+        if let rs = database.executeQuery("select * from cart where product_id = ?", withArgumentsIn: [product.id]) {
+            while rs.next() {
+                if let string = rs.string(forColumn: "product_id") {
+                    print("string: \(string)")
+                    isInCart = true
+                    let product_qulity = rs.string(forColumn: "product_qulity")
+                    print("product_qulity: \(product_qulity)")
+                    qulityInCart = Int(product_qulity!)
+                } else {
+                    print("nil")
+                }
+            }
+            print("out while")
+        }
+        if isInCart == true {
+            print("update")
+            let totalQulity = qulityInCart + qulity
+            updateRow(id: product.id, qulity: totalQulity)
+        } else {
+            print("insert")
+            insertRow(id: Int(product.id)!, qulity: qulity)
+        }
     }
     
     // MARK: Function
@@ -47,9 +76,81 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         print("Share with friends")
     }
     
+    // MARK: FMDB
+    func openDB() {
+        let documentsFolder = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let path = documentsFolder.appending("/cart.db")
+        print("db path: \(path)")
+        let fileManager = FileManager()
+        if (!fileManager.fileExists(atPath: path)){
+            let dbFilePath = Bundle.main.path(forResource: "cart", ofType: "db")!
+            do{
+                try fileManager.copyItem(atPath: dbFilePath, toPath: path)
+            }catch{
+                
+            }
+        }
+        self.database = FMDatabase(path: path)
+        self.database.open()
+        self.query()
+    }
     
+    func insertRow(id: Int, qulity: Int) {
+        let documentsFolder = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let path = documentsFolder.appending("/cart.db")
+        let contactDB = FMDatabase(path: path)
+        if (contactDB?.open())! {
+            defer {
+                contactDB?.close()
+            }
+            do {
+                try contactDB?.executeUpdate("INSERT INTO cart VALUES (?,?)", values: [id, qulity])
+            } catch {
+                print("error insert")
+            }
+        } else {
+            print("error: \(contactDB?.lastErrorMessage())")
+        }
+    }
+    
+    func updateRow(id: String, qulity: Int) {
+        let documentsFolder = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let path = documentsFolder.appending("/cart.db")
+        let contactDB = FMDatabase(path: path)
+        if (contactDB?.open())! {
+            defer {
+                contactDB?.close()
+            }
+            do {
+                try contactDB?.executeUpdate("UPDATE cart SET product_qulity=? WHERE product_id=?", values: [qulity, id])
+            } catch {
+                print("error update")
+            }
+        } else {
+            print("error: \(contactDB?.lastErrorMessage())")
+        }
+    }
+    
+    func query() {
+        if let rs = database.executeQuery("SELECT product_id, product_qulity FROM cart", withArgumentsIn: nil) {
+            
+            while rs.next() {
+                let product_id = rs.int(forColumn: "product_id")
+                let product_qulity = rs.string(forColumn: "product_qulity")
+                
+                let item:[String:String] = [
+                    "product_id":String(product_id),
+                    "product_qulity":product_qulity!]
+                productInCart.append(item)
+            }
+            self.tableView.reloadData()
+        } else {
+            print("select failed: \(database.lastErrorMessage())")
+        }
+    }
+    
+    // MARK: TableView Delegate: DataSource
     func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
         return 5
     }
     
@@ -133,8 +234,8 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        // Effect
+        openDB()
+        // Setting
         self.title = product.name
         self.lblProductName.text = product.name
 //        self.lblProductPrice.text = product.nat_price
@@ -161,7 +262,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         slideshow.contentScaleMode = UIViewContentMode.scaleAspectFit
         
 //        slideshow.setImageInputs(localSource)
-        let image = "http://www.all2built.com/static/img/\(product.imageShow_cover)"
+        let image = "http://a2b.mul.pw/static/img/\(product.imageShow_cover)"
         slideshow.setImageInputs([AlamofireSource(urlString: image)!])
         // Do any additional setup after loading the view.
     }
