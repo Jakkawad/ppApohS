@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HomeTableViewCell2Delegate, HomeTableViewCell1Delegate {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var collectionItemHeight: Double = 0.0
@@ -25,17 +25,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func didSelectRow() {
-        print("didselect")
+//        print("didselect")
         performSegue(withIdentifier: "ProductAllSegue", sender: nil)
     }
     
     func getHeight(height: Double, numberOfArray: Int) {
         let numberOfRow = numberOfArray / 2
-        let heightResult: Double = (height * Double(numberOfRow)) + (5 * 10) + (6 * 5)
+        let heightResult: Double = (height * Double(numberOfRow)) + (Double(numberOfRow) * 10)//+ (5 * 10) + (6 * 5)
         collectionItemHeight = Double(heightResult)
 //        print("itemHeight: \(collectionItemHeight)")
         collectionCell = CGFloat(collectionItemHeight)
-        print("collectionCell: \(collectionCell)")
+//        print("collectionCell: \(collectionCell)")
         tableView.reloadSections(NSIndexSet(index: 2) as IndexSet, with: .none)
     }
     
@@ -74,7 +74,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         } else if indexPath.section == 1 {
             return 120
         } else {
-            print("heightCell: \(collectionCell)")
+//            print("heightCell: \(collectionCell)")
             return collectionCell//992.5
         }
     }
@@ -86,6 +86,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         self.tableView.allowsSelection = false
         
+
         // Do any additional setup after loading the view.
     }
 

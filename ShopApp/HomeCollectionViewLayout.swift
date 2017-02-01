@@ -28,7 +28,9 @@ class HomeCollectionViewLayout: UICollectionViewFlowLayout {
         if let collectionView = self.collectionView {
             var newItemSize = itemSize
             let itemsPersRow = CGFloat(max(numberOfItemsPerRow, 1))
+//            print("itemPerRow: \(itemsPersRow)")
             let totalSpacing = minimumInteritemSpacing * (itemsPersRow - 1.0)
+//            print("totalSpacing: \(totalSpacing)")
             newItemSize.width = (collectionView.bounds.size.width - totalSpacing) / itemsPersRow
             if itemSize.height > 0 {
                 let itemAspectRatio = itemSize.width / itemSize.height

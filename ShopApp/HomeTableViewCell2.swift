@@ -35,7 +35,6 @@ class HomeTableViewCell2: UITableViewCell, UICollectionViewDataSource, UICollect
                     self.collectionView.reloadData()
                 }
             }
-            
             completed()
         }
     }

@@ -14,11 +14,24 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var products = [Product]()
     
+    // Price + Shipping
+    var totalPrice: Double = 0
+    var shipping: Double = 0
+    var totalPriceWithShipping: Double = 0
+    var priceToMember: Double = 0
+    var priceToInvent: Double = 0
+    
     var database:FMDatabase!
     var productInCart: [[String:String]] = []
     var numberOfArray: Int!
-    
+    // MARK: TableView
     @IBOutlet weak var tableView:UITableView!
+    // MARK: UIView
+    @IBOutlet weak var lblTotalPrice: UILabel!
+    @IBOutlet weak var lblShipping: UILabel!
+    @IBOutlet weak var lblTotalPriceWithShipping: UILabel!
+    @IBOutlet weak var lblPriceToMember: UILabel!
+    @IBOutlet weak var lblPriceToInvent: UILabel!
     
     func qulityNegative(qulity: Int, product_id: String) {
         print("qulity: \(qulity), product_id: \(product_id)")
@@ -137,10 +150,12 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let product = products[indexPath.section]
-        print("indexPath.section: \(indexPath.section)")
+//        print("indexPath.section: \(indexPath.section)")
         var cart = productInCart[indexPath.section]
+//        print("id: \(cart["product_id"])")
 //        print("cart: \(cart["product_qulity"])")
         let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0) as? CartTableViewCell
+        cell0?.product_qulity = Int(cart["product_qulity"]!)!
         cell0?.configureCell(product: product, qulity: Int(cart["product_qulity"]!)!)
         cell0?.selectionStyle = .none
 //        cell0?.numberOfArray = indexPath.section
