@@ -8,11 +8,12 @@
 
 import Foundation
 
-var tableCell0 = "tableCell0"
-var tableCell1 = "tableCell1"
-var tableCell2 = "tableCell2"
-var tableCell3 = "tableCell3"
-var tableCell4 = "tableCell4"
+let tableCell0 = "tableCell0"
+let tableCell1 = "tableCell1"
+let tableCell2 = "tableCell2"
+let tableCell3 = "tableCell3"
+let tableCell4 = "tableCell4"
+let tableCell5 = "tableCell5"
 
 
 typealias DownloadComplete = () -> ()

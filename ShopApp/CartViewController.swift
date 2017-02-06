@@ -13,7 +13,7 @@ import Alamofire
 class CartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CartTableViewCellDelegate {
     
     var products = [Product]()
-    
+    var productSelected: Product!
     // Price + Shipping
     var totalPrice: Double = 0
     var shipping: Double = 0
@@ -164,6 +164,13 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print(indexPath.section)
+        let product = products[indexPath.section]
+        productSelected = product
+        performSegue(withIdentifier: "ProductDetailSegue", sender: nil)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 102
     }
@@ -201,14 +208,18 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ProductDetailSegue" {
+            let detailVC = segue.destination as? ProductDetailViewController
+            detailVC?.product = productSelected
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

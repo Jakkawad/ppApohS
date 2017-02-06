@@ -29,7 +29,7 @@ class ProductGirdLayout: UICollectionViewFlowLayout {
                 newItemSize.height = newItemSize.width / itemAspectRatio
             }
             itemSize = newItemSize
-            print("itemSize: \(itemSize)")
+//            print("itemSize: \(itemSize)")
         }
     }
     

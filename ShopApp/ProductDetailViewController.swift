@@ -151,19 +151,21 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     
     // MARK: TableView Delegate: DataSource
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 6
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return 4
         if section == 0 {
-            return 2
+            return 2 // Button
         } else if section == 1 {
-            return 1
+            return 1 // Color
         } else if section == 2 {
-            return 1
+            return 1 // Detail
         } else if section == 3 {
-            return 3 //Comment
+            return 1 // Comment Header
+        } else if section == 4 {
+            return 5 //Comment
         } else {
             return 1
         }
@@ -188,6 +190,9 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
                 return cell1!
             }
         } else if indexPath.section == 1 {
+            let cell5 = tableView.dequeueReusableCell(withIdentifier: tableCell5) as? ProductDetailCell5TableViewCell
+            return cell5!
+        } else if indexPath.section == 2 {
             let cell2 = tableView.dequeueReusableCell(withIdentifier: tableCell1) as? ProductDetailCell1TableViewCell
 //            let attStr = try! NSAttributedString(data: "<b><i>\(product.detail)</i>,</b>".data(using: String.Encoding.unicode, allowLossyConversion: true)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
 //            cell2?.lblDetail.attributedText = attStr
@@ -195,10 +200,10 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
 //            cell2?.lblDetail.text = "Lorem ipsum dolor sit amet, consectetur volutpat."
             cell2?.selectionStyle = .none
             return cell2!
-        } else if indexPath.section == 2 {
+        } else if indexPath.section == 3 {
             let cell4 = tableView.dequeueReusableCell(withIdentifier: tableCell4)
             return cell4!
-        } else if indexPath.section == 3 {
+        } else if indexPath.section == 4 {
             let cell2 = tableView.dequeueReusableCell(withIdentifier: tableCell2)
             cell2?.selectionStyle = .none
             return cell2!
@@ -221,10 +226,12 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         } else if indexPath.section == 1 {
             return 230
         } else if indexPath.section == 2 {
-            return 34
+            return 230
         } else if indexPath.section == 3 {
-            return 100
+            return 34
         } else if indexPath.section == 4 {
+            return 100
+        } else if indexPath.section == 5 {
             return 220
         } else {
             return 220
