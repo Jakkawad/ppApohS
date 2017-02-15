@@ -35,9 +35,9 @@ class AccountViewController: UIViewController, UICollectionViewDataSource, UICol
         } else if indexPath.row == 1 {
             performSegue(withIdentifier: "PasswordSegue", sender: self)
         } else if indexPath.row == 2 {
-            
+            performSegue(withIdentifier: "MyPurchaseSegue", sender: self)
         } else if indexPath.row == 3 {
-            
+            performSegue(withIdentifier: "PaymentSegue", sender: self)
         } else if indexPath.row == 4 {
             
         } else {

@@ -25,6 +25,7 @@
 		312AB4551E3A3D600095C4EE /* ProductGirdLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312AB4541E3A3D600095C4EE /* ProductGirdLayout.swift */; };
 		3132BC9E1DE2B52D0080E92D /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132BC9D1DE2B52D0080E92D /* FilterViewController.swift */; };
 		3146FC4C1DE2D748001EA762 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3146FC4B1DE2D748001EA762 /* ProfileViewController.swift */; };
+		315B008F1E51B5CF00A1CCBA /* MyPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315B008E1E51B5CF00A1CCBA /* MyPurchaseViewController.swift */; };
 		317DECB11DCDA70200B8F447 /* polar_bear_penguin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 317DECB01DCDA70200B8F447 /* polar_bear_penguin.jpg */; };
 		3191684E1DE82D7400C4E68F /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3191684D1DE82D7400C4E68F /* Product.swift */; };
 		3191685C1DE92B2300C4E68F /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3191685B1DE92B2300C4E68F /* StartViewController.swift */; };
@@ -68,6 +69,16 @@
 		31C864B81DE2E08000A98A4B /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 31C864B21DE2E08000A98A4B /* book.png */; };
 		31C864BA1DE2E42F00A98A4B /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C864B91DE2E42F00A98A4B /* ChangePasswordViewController.swift */; };
 		31C864BD1DE2EC5D00A98A4B /* file-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 31C864BC1DE2EC5D00A98A4B /* file-2.png */; };
+		31C987FE1E51B78400083ADD /* MyPurchaseReuseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C987FD1E51B78400083ADD /* MyPurchaseReuseViewController.swift */; };
+		31C988001E51D2D800083ADD /* MyPurchaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C987FF1E51D2D800083ADD /* MyPurchaseDetailViewController.swift */; };
+		31C988021E51D46B00083ADD /* MyPurchaseDetailCell0TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C988011E51D46B00083ADD /* MyPurchaseDetailCell0TableViewCell.swift */; };
+		31C988041E53539600083ADD /* RefundPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C988031E53539600083ADD /* RefundPurchaseViewController.swift */; };
+		31C988071E53FEEA00083ADD /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C988061E53FEEA00083ADD /* PaymentViewController.swift */; };
+		31C9880A1E54046C00083ADD /* kbank-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 31C988091E54046C00083ADD /* kbank-logo.png */; };
+		31C9880D1E54063C00083ADD /* blank-check-box.png in Resources */ = {isa = PBXBuildFile; fileRef = 31C9880B1E54063C00083ADD /* blank-check-box.png */; };
+		31C9880E1E54063C00083ADD /* check-box.png in Resources */ = {isa = PBXBuildFile; fileRef = 31C9880C1E54063C00083ADD /* check-box.png */; };
+		31C988101E540E2C00083ADD /* NotificationPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C9880F1E540E2C00083ADD /* NotificationPaymentViewController.swift */; };
+		31C988161E5418C800083ADD /* ViewBorderBlack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C988151E5418C800083ADD /* ViewBorderBlack.swift */; };
 		31CDA3E41DF90F3F00089857 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CDA3E31DF90F3F00089857 /* RegisterViewController.swift */; };
 		31D435141E30EC7400177958 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D435131E30EC7400177958 /* CartTableViewCell.swift */; };
 		31D435161E3117AE00177958 /* CartDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D435151E3117AE00177958 /* CartDoneViewController.swift */; };
@@ -133,6 +144,7 @@
 		312AB4541E3A3D600095C4EE /* ProductGirdLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductGirdLayout.swift; sourceTree = "<group>"; };
 		3132BC9D1DE2B52D0080E92D /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		3146FC4B1DE2D748001EA762 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		315B008E1E51B5CF00A1CCBA /* MyPurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPurchaseViewController.swift; sourceTree = "<group>"; };
 		317DECB01DCDA70200B8F447 /* polar_bear_penguin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = polar_bear_penguin.jpg; sourceTree = "<group>"; };
 		3191684D1DE82D7400C4E68F /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		3191685B1DE92B2300C4E68F /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +194,16 @@
 		31C864B21DE2E08000A98A4B /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
 		31C864B91DE2E42F00A98A4B /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		31C864BC1DE2EC5D00A98A4B /* file-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "file-2.png"; sourceTree = "<group>"; };
+		31C987FD1E51B78400083ADD /* MyPurchaseReuseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPurchaseReuseViewController.swift; sourceTree = "<group>"; };
+		31C987FF1E51D2D800083ADD /* MyPurchaseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPurchaseDetailViewController.swift; sourceTree = "<group>"; };
+		31C988011E51D46B00083ADD /* MyPurchaseDetailCell0TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPurchaseDetailCell0TableViewCell.swift; sourceTree = "<group>"; };
+		31C988031E53539600083ADD /* RefundPurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefundPurchaseViewController.swift; sourceTree = "<group>"; };
+		31C988061E53FEEA00083ADD /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		31C988091E54046C00083ADD /* kbank-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kbank-logo.png"; sourceTree = "<group>"; };
+		31C9880B1E54063C00083ADD /* blank-check-box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blank-check-box.png"; sourceTree = "<group>"; };
+		31C9880C1E54063C00083ADD /* check-box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-box.png"; sourceTree = "<group>"; };
+		31C9880F1E540E2C00083ADD /* NotificationPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationPaymentViewController.swift; sourceTree = "<group>"; };
+		31C988151E5418C800083ADD /* ViewBorderBlack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewBorderBlack.swift; sourceTree = "<group>"; };
 		31CDA3E31DF90F3F00089857 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		31D435131E30EC7400177958 /* CartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		31D435151E3117AE00177958 /* CartDoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartDoneViewController.swift; sourceTree = "<group>"; };
@@ -259,6 +281,17 @@
 			name = CollectionView;
 			sourceTree = "<group>";
 		};
+		315B00901E51B5D300A1CCBA /* MyPurchase */ = {
+			isa = PBXGroup;
+			children = (
+				315B008E1E51B5CF00A1CCBA /* MyPurchaseViewController.swift */,
+				31C987FD1E51B78400083ADD /* MyPurchaseReuseViewController.swift */,
+				31C987FF1E51D2D800083ADD /* MyPurchaseDetailViewController.swift */,
+				31C988011E51D46B00083ADD /* MyPurchaseDetailCell0TableViewCell.swift */,
+			);
+			name = MyPurchase;
+			sourceTree = "<group>";
+		};
 		3191684C1DE5880400C4E68F /* Filter */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,7 +349,10 @@
 		31B6935C1DDE9BE000950B54 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				31C9880B1E54063C00083ADD /* blank-check-box.png */,
+				31C9880C1E54063C00083ADD /* check-box.png */,
 				31DCDEA51E37A90000555691 /* blur-bg.jpg */,
+				31C988091E54046C00083ADD /* kbank-logo.png */,
 				31DAA8461E289D1400712987 /* login-bg.jpg */,
 				31DAA84E1E28BE8900712987 /* login-bg-60.jpg */,
 				31C864BB1DE2EC4200A98A4B /* Icon */,
@@ -346,6 +382,7 @@
 				312AB4541E3A3D600095C4EE /* ProductGirdLayout.swift */,
 				31DAA84A1E28A56A00712987 /* ImageSetAlpha.swift */,
 				31DAA84C1E28BA7A00712987 /* ViewBorder.swift */,
+				31C988151E5418C800083ADD /* ViewBorderBlack.swift */,
 				31D435171E311ABE00177958 /* ViewBounds.swift */,
 				31DAA88E1E2CD5E400712987 /* ProfileCircular.swift */,
 			);
@@ -526,6 +563,23 @@
 			name = Icon;
 			sourceTree = "<group>";
 		};
+		31C988051E53539E00083ADD /* Refund */ = {
+			isa = PBXGroup;
+			children = (
+				31C988031E53539600083ADD /* RefundPurchaseViewController.swift */,
+			);
+			name = Refund;
+			sourceTree = "<group>";
+		};
+		31C988081E53FEF500083ADD /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				31C988061E53FEEA00083ADD /* PaymentViewController.swift */,
+				31C9880F1E540E2C00083ADD /* NotificationPaymentViewController.swift */,
+			);
+			name = Payment;
+			sourceTree = "<group>";
+		};
 		31D435191E3126AC00177958 /* AddShipping */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,6 +622,9 @@
 			children = (
 				31BA70DE1DC32968009A72D6 /* AccountViewController.swift */,
 				3122B9211E2F389600693B28 /* AccountCollectionViewCell.swift */,
+				31C988081E53FEF500083ADD /* Payment */,
+				31C988051E53539E00083ADD /* Refund */,
+				315B00901E51B5D300A1CCBA /* MyPurchase */,
 				31D4351C1E31B9FA00177958 /* ProfileViewController */,
 				31D4351F1E31BBA800177958 /* ChangePasswordViewController */,
 			);
@@ -718,18 +775,21 @@
 				31BA70A61DC3090D009A72D6 /* LaunchScreen.storyboard in Resources */,
 				317DECB11DCDA70200B8F447 /* polar_bear_penguin.jpg in Resources */,
 				31DCDEA61E37A90000555691 /* blur-bg.jpg in Resources */,
+				31C9880D1E54063C00083ADD /* blank-check-box.png in Resources */,
 				31B693591DDE9BDB00950B54 /* pink-shirt.jpg in Resources */,
 				31A2D79F1DD1D4CA00F9394D /* 427-cobra.jpg in Resources */,
 				31C864B31DE2E08000A98A4B /* alarm-clock.png in Resources */,
 				31C864B81DE2E08000A98A4B /* book.png in Resources */,
 				31DAA8471E289D1400712987 /* login-bg.jpg in Resources */,
 				3122B9591E2F684B00693B28 /* success.png in Resources */,
+				31C9880E1E54063C00083ADD /* check-box.png in Resources */,
 				31BA70D21DC31B6B009A72D6 /* main_image.jpg in Resources */,
 				31C864B71DE2E08000A98A4B /* bluetooth.png in Resources */,
 				31C864B51DE2E08000A98A4B /* bar-chart.png in Resources */,
 				31BA70A31DC3090D009A72D6 /* Assets.xcassets in Resources */,
 				31DAA8511E2CC27A00712987 /* cross-symbol.png in Resources */,
 				31DAA84F1E28BE8900712987 /* login-bg-60.jpg in Resources */,
+				31C9880A1E54046C00083ADD /* kbank-logo.png in Resources */,
 				31BA70A11DC3090D009A72D6 /* Main.storyboard in Resources */,
 				31DAA8911E2CD74300712987 /* icon-coin.png in Resources */,
 				31C864BD1DE2EC5D00A98A4B /* file-2.png in Resources */,
@@ -860,12 +920,14 @@
 				31A2D7A51DD6DE1F00F9394D /* ProductDetailCell0TableViewCell.swift in Sources */,
 				312AB41D1E385DBE0095C4EE /* ProductListLayout.swift in Sources */,
 				31D4351B1E3126BE00177958 /* AddShippingTableViewCell.swift in Sources */,
+				31C988001E51D2D800083ADD /* MyPurchaseDetailViewController.swift in Sources */,
 				31D435271E32051900177958 /* FilterOptionViewController.swift in Sources */,
 				3120ABE71E44442400EFF403 /* ProductDetailCell5TableViewCell.swift in Sources */,
 				31DAA88F1E2CD5E400712987 /* ProfileCircular.swift in Sources */,
 				31D435181E311ABE00177958 /* ViewBounds.swift in Sources */,
 				31BA70BF1DC30DC8009A72D6 /* User.swift in Sources */,
 				31A148541E35AE9900C5C607 /* ProductCommentViewController.swift in Sources */,
+				31C988021E51D46B00083ADD /* MyPurchaseDetailCell0TableViewCell.swift in Sources */,
 				31B693EA1DE28DD900950B54 /* GeneralClass.swift in Sources */,
 				31B693B81DE20AE900950B54 /* BorderCircular.swift in Sources */,
 				31BA70DF1DC32968009A72D6 /* AccountViewController.swift in Sources */,
@@ -875,6 +937,7 @@
 				31DAA8931E2CD7D200712987 /* ProfileGridLayout.swift in Sources */,
 				31A148561E35B05A00C5C607 /* EditProductViewController.swift in Sources */,
 				31BA70D41DC321D5009A72D6 /* ProductDetailViewController.swift in Sources */,
+				31C987FE1E51B78400083ADD /* MyPurchaseReuseViewController.swift in Sources */,
 				31209EED1DE2A56000553B52 /* GridFlowLayout.swift in Sources */,
 				31C864BA1DE2E42F00A98A4B /* ChangePasswordViewController.swift in Sources */,
 				31CDA3E41DF90F3F00089857 /* RegisterViewController.swift in Sources */,
@@ -901,6 +964,7 @@
 				31DAA8451E27E2D000712987 /* HomeCollectionViewCell1.swift in Sources */,
 				31BA70CF1DC318BB009A72D6 /* ProductViewController.swift in Sources */,
 				3122B9571E2F65D800693B28 /* AddShippingViewController.swift in Sources */,
+				315B008F1E51B5CF00A1CCBA /* MyPurchaseViewController.swift in Sources */,
 				31A2D7A11DD4658600F9394D /* ProductDetailCell3TableViewCell.swift in Sources */,
 				312AB3BC1E37CBFC0095C4EE /* MoreProductCollectionViewCell.swift in Sources */,
 				31DAA84B1E28A56A00712987 /* ImageSetAlpha.swift in Sources */,
@@ -911,11 +975,15 @@
 				31DAA83E1E2786C700712987 /* HomeCollectionViewLayout.swift in Sources */,
 				311AE2FA1E2739AD00FA92E1 /* HomeViewController.swift in Sources */,
 				31BA709C1DC3090D009A72D6 /* AppDelegate.swift in Sources */,
+				31C988041E53539600083ADD /* RefundPurchaseViewController.swift in Sources */,
 				31D4351E1E31BA1000177958 /* ProfileTableViewCell.swift in Sources */,
 				3122B9551E2F604000693B28 /* ViewBorderGray.swift in Sources */,
+				31C988071E53FEEA00083ADD /* PaymentViewController.swift in Sources */,
 				31B693611DDEB6D900950B54 /* BorderButton.swift in Sources */,
 				311AE3001E273AC200FA92E1 /* HomeTableViewCell2.swift in Sources */,
 				311AE2FE1E273AB900FA92E1 /* HomeTableViewCell1.swift in Sources */,
+				31C988101E540E2C00083ADD /* NotificationPaymentViewController.swift in Sources */,
+				31C988161E5418C800083ADD /* ViewBorderBlack.swift in Sources */,
 				31B693971DDEFC4900950B54 /* ShippingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

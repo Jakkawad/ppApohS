@@ -18,6 +18,7 @@ class ShopViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var dropDownDictionary = ["Animal": ["Cat", "Dog", "Ant"], "Drink": ["Corona", "Budweiser", "Jack Daniels"], "Fruit": ["Apple", "Mango", "Strawberry", "Blueberry", "Pear", "Orange", "Watermelon"], "Food": ["Twister Combo", "Mozzarella Chicken", "Mathafi Combo", "French Chicken Taf"]]
     
     var foodTypeArray = [FoodType]()
+    
     var selectedSection: Int!
     
     var showMore: Bool = false
