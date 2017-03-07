@@ -22,7 +22,7 @@ class MyPurchaseDetailViewController: UIViewController, UITableViewDataSource, U
     
     func getRow(row: Int, height: CGFloat) {
         let freeSpace: Int = 28
-        cell0TotalHeight = (Int(height) * row) + 145 + freeSpace
+        cell0TotalHeight = (Int(height) * row) + 155 + freeSpace
         tableView.reloadData()
     }
     

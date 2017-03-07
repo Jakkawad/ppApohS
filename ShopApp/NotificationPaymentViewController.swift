@@ -32,9 +32,11 @@ class NotificationPaymentViewController: UIViewController, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0)
+            cell0?.selectionStyle = .none
             return cell0!
         } else {
             let cell1 = tableView.dequeueReusableCell(withIdentifier: tableCell1)
+            cell1?.selectionStyle = .none
             return cell1!
         }
     }

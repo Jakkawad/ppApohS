@@ -50,6 +50,7 @@ class HomeTableViewCell1: UITableViewCell, UICollectionViewDataSource, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let product = products[indexPath.row]
         let cell0 = collectionView.dequeueReusableCell(withReuseIdentifier: "tableCell0", for: indexPath) as? HomeCollectionViewCell0
         cell0?.configureCell(product: product)

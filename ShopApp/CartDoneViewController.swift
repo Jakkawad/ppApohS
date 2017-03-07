@@ -11,8 +11,12 @@ import UIKit
 class CartDoneViewController: UIViewController {
 
     @IBAction func btnGoHome(_ sender: UIBarButtonItem) {
+        print("done")
 //        performSegue(withIdentifier: "GoHomeSegue", sender: nil)
-        _ = navigationController?.popToRootViewController(animated: true)
+//        _ = navigationController?.popToRootViewController(animated: true)
+//        navigationController?.popToRootViewController(animated: true)
+//        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {

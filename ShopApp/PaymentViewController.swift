@@ -26,6 +26,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0)
+        cell0?.selectionStyle = .none
         return cell0!
     }
     
