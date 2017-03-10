@@ -14,6 +14,7 @@ func stringCount(text:String) -> Int {
     return text.characters.count
 }
 
+// Label strike through
 func labelStrikethrough(text: String) -> NSMutableAttributedString {
     let attributeString = NSMutableAttributedString(string: text)
     attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 2, range: NSMakeRange(0, attributeString.length))

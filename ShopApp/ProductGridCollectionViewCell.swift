@@ -26,7 +26,8 @@ class ProductGridCollectionViewCell: UICollectionViewCell {
         lblProductPrice.attributedText = combination
 //        print(product.name)
         lblProductName.text = product.name
-        imageViewProduct.af_setImage(withURL: NSURL(string: "http://a2b.mul.pw/static/img/\(product.imageShow_cover)") as! URL)
+//        imageViewProduct.af_setImage(withURL: NSURL(string: "http://a2b.mul.pw/static/img/\(product.imageShow_cover)") as! URL)
+        imageViewProduct.af_setImage(withURL: NSURL(string: ALL2SALE_API_IMAGE_PATH + product.imageShow_cover) as! URL)
 //        print("image: \(product.imageShow_cover)")
     }
 }

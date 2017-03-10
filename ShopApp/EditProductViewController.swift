@@ -48,7 +48,13 @@ class EditProductViewController: UIViewController  {
         super.viewDidLoad()
 
         txtQulity.text = String(qulity)
-        
+
+        // Blur Effect
+//        let blurEffect = UIBlurEffect(style: .dark)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = self.view.frame
+//        
+//        self.view.insertSubview(blurEffectView, at: 0)
 //        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
 //        let blurEffectView = UIVisualEffectView(effect: blurEffect)
 //        blurEffectView.frame = view.bounds

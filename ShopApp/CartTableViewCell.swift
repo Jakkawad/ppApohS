@@ -57,7 +57,8 @@ class CartTableViewCell: UITableViewCell {
         product_price = Int(product.snat_price)!
         lblProductName.text = product.name
         txtProductQulity.text = String(qulity)
-        imageViewProduct.af_setImage(withURL: NSURL(string: "http://a2b.mul.pw/static/img/\(product.imageShow_cover)") as! URL)
+//        imageViewProduct.af_setImage(withURL: NSURL(string: "http://a2b.mul.pw/static/img/\(product.imageShow_cover)") as! URL)
+        imageViewProduct.af_setImage(withURL: NSURL(string: ALL2SALE_API_IMAGE_PATH + product.imageShow_cover) as! URL)
     }
     
     override func awakeFromNib() {

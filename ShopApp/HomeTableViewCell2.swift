@@ -25,9 +25,9 @@ class HomeTableViewCell2: UITableViewCell, UICollectionViewDataSource, UICollect
     @IBOutlet weak var collectionView: UICollectionView!
     
     func loadJSON(completed:@escaping DownloadComplete) {
-        Alamofire.request("http://a2b.mul.pw/api/v2/product/").responseJSON { response in
+        Alamofire.request(ALL2SALE_API_PRODUCT).responseJSON { response in
             if let result = response.result.value as? Dictionary<String, AnyObject> {
-                if let product = result["product"] as? [Dictionary<String, AnyObject>] {
+                if let product = result[PRODUCT] as? [Dictionary<String, AnyObject>] {
                     for obj in product {
                         let product = Product(productDictionary: obj)
                         self.products.append(product)
@@ -55,7 +55,7 @@ class HomeTableViewCell2: UITableViewCell, UICollectionViewDataSource, UICollect
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let product = products[indexPath.row]
-        let cell0 = collectionView.dequeueReusableCell(withReuseIdentifier: "tableCell0", for: indexPath) as? HomeCollectionViewCell1
+        let cell0 = collectionView.dequeueReusableCell(withReuseIdentifier: tableCell0, for: indexPath) as? HomeCollectionViewCell1
 //        cell0?.layer.borderWidth = 2.0
 //        cell0?.layer.borderColor = UIColor.orange.cgColor
         cell0?.configureCell(product: product)

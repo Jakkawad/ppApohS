@@ -215,7 +215,7 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 2 {
+        if indexPath.section == 3 {
             performSegue(withIdentifier: "ProductCommentSegue", sender: nil)
         }
     }
@@ -269,7 +269,8 @@ class ProductDetailViewController: UIViewController, UITableViewDataSource, UITa
         slideshow.contentScaleMode = UIViewContentMode.scaleAspectFit
         
 //        slideshow.setImageInputs(localSource)
-        let image = "http://a2b.mul.pw/static/img/\(product.imageShow_cover)"
+//        let image = "http://a2b.mul.pw/static/img/\(product.imageShow_cover)"
+        let image = ALL2SALE_API_IMAGE_PATH + product.imageShow_cover
         slideshow.setImageInputs([AlamofireSource(urlString: image)!])
         // Do any additional setup after loading the view.
     }

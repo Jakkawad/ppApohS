@@ -62,7 +62,7 @@ class ProductViewController: UIViewController, UICollectionViewDataSource, UICol
         print("Grid")
         isGridFlowLayoutUsed = true
         collectionView.reloadData()
-        self.collectionView.setCollectionViewLayout(self.gridFlowLayout, animated: false)
+        self.collectionView.setCollectionViewLayout(self.gridFlowLayout, animated: true)
 //        collectionView.reloadSections(NSIndexSet(index: 0) as IndexSet)
 //        isGridFlowLayoutUsed = true
 //        collectionView.reloadData()
@@ -108,9 +108,9 @@ class ProductViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     func loadJSON(completed:@escaping DownloadComplete) {
-        Alamofire.request("http://a2b.mul.pw/api/v2/product/").responseJSON { response in
+        Alamofire.request(ALL2SALE_API_PRODUCT).responseJSON { response in
             if let result = response.result.value as? Dictionary<String, AnyObject> {
-                if let product = result["product"] as? [Dictionary<String, AnyObject>] {
+                if let product = result[PRODUCT] as? [Dictionary<String, AnyObject>] {
                     for obj in product {
                         let product = Product(productDictionary: obj)
                         self.products.append(product)
@@ -152,7 +152,7 @@ class ProductViewController: UIViewController, UICollectionViewDataSource, UICol
         var tableCell:String!
         if isGridFlowLayoutUsed == true {
 //            print("Grid")
-            tableCell = "tableCell0"
+            tableCell = tableCell0
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tableCell, for: indexPath) as! ProductGridCollectionViewCell
             cell.configureCell(product: product)
 //            print("product: \(products[indexPath.row])")
@@ -160,7 +160,7 @@ class ProductViewController: UIViewController, UICollectionViewDataSource, UICol
             
         } else {
 //            print("List")
-            tableCell = "tableCell1"
+            tableCell = tableCell1
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tableCell, for: indexPath) as! ProductListCollectionViewCell
             cell.configureCell(product: product)
 //            print("product: \(products[indexPath.row])")

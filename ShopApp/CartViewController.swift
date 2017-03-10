@@ -115,8 +115,9 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let item = result as NSDictionary
             let product_id = item.object(forKey: "product_id")!
             Alamofire.request("http://a2b.mul.pw/api/v2/product/id/\(product_id)").responseJSON { response in
+//            Alamofire.request(ALL2SALE_API_PRODUCT_ID+product_id).responseJSON { response in <--
                 if let result = response.result.value as? Dictionary<String, AnyObject> {
-                    if let product = result["product"] as? [Dictionary<String, AnyObject>] {
+                    if let product = result[PRODUCT] as? [Dictionary<String, AnyObject>] {
 //                    print(product)
                         for obj in product {
                             let product = Product(productDictionary: obj)

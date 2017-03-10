@@ -55,14 +55,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell0 = tableView.dequeueReusableCell(withIdentifier: "tableCell0") as? HomeTableViewCell0
+            let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0) as? HomeTableViewCell0
             return cell0!
         } else if indexPath.section == 1 {
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: "tableCell1") as? HomeTableViewCell1
+            let cell1 = tableView.dequeueReusableCell(withIdentifier: tableCell1) as? HomeTableViewCell1
             cell1?.delegate = self
             return cell1!
         } else {
-            let cell2 = tableView.dequeueReusableCell(withIdentifier: "tableCell2") as? HomeTableViewCell2
+            let cell2 = tableView.dequeueReusableCell(withIdentifier: tableCell2) as? HomeTableViewCell2
             cell2?.delegate = self
             return cell2!
         }

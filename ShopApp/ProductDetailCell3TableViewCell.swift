@@ -17,9 +17,9 @@ class ProductDetailCell3TableViewCell: UITableViewCell, UICollectionViewDataSour
     @IBOutlet weak var collectionView:UICollectionView!
     
     func loadJSON(completed:@escaping DownloadComplete) {
-        Alamofire.request("http://a2b.mul.pw/api/v2/product/").responseJSON { response in
+        Alamofire.request(ALL2SALE_API_PRODUCT).responseJSON { response in
             if let result = response.result.value as? Dictionary<String, AnyObject> {
-                if let product = result["product"] as? [Dictionary<String, AnyObject>] {
+                if let product = result[PRODUCT] as? [Dictionary<String, AnyObject>] {
                     for obj in product {
                         let product = Product(productDictionary: obj)
                         self.products.append(product)

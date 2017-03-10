@@ -8,17 +8,13 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate {
+class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SearchProductTableDelegate {
 
-    var dataArray = ["Dog", "Cat", "Bird", "Wolf"]
+    var dataArray = ["A", "B"]
+    var searchProduct: Product!
     
-    var filteredArray = [String]()
+    var resultSearchController: UISearchController!
     
-    var shouldShowSearchResults = false
-    
-    var searchController: UISearchController!
-    
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -26,59 +22,36 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 1
-        if shouldShowSearchResults {
-            return filteredArray.count
-        } else {
-            return dataArray.count
-        }
+        return dataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell0 = tableView.dequeueReusableCell(withIdentifier: tableCell0)
-        if shouldShowSearchResults {
-            cell0?.textLabel?.text = filteredArray[indexPath.row]
-        }
-        else {
-            cell0?.textLabel?.text = dataArray[indexPath.row]
-        }
+        cell0?.textLabel?.text = dataArray[indexPath.row]
         return cell0!
     }
     
-    // MARK: UISearchBarDelegate functions
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("searchText: \(searchText)")
+    func searchProduct(product: Product) {
+        searchProduct = product
+        performSegue(withIdentifier: "ProductSearchSegue", sender: nil)
     }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        print("beginEditing: \(searchBar)")
-        shouldShowSearchResults = true
-        tableView.reloadData()
-    }
-    
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("cancelButton: \(searchBar)")
-        shouldShowSearchResults = false
-        tableView.reloadData()
-    }
-    
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("buttonClicked: \(searchBar)")
-        if !shouldShowSearchResults {
-            shouldShowSearchResults = true
-            tableView.reloadData()
-        }
-        // Press enter(return) -> Error
-//        searchController.searchBar.resignFirstResponder()
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // SearchTable
+        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "ProductSearchTable") as! SearchProductTableViewController
+        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
+        resultSearchController.searchResultsUpdater = locationSearchTable
+        let searchBar = resultSearchController!.searchBar
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search for products"
+        navigationItem.titleView = resultSearchController?.searchBar
+        resultSearchController.hidesNavigationBarDuringPresentation = false
+        resultSearchController.dimsBackgroundDuringPresentation = true
+        definesPresentationContext = true
+        locationSearchTable.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -88,14 +61,18 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ProductSearchSegue" {
+            let productDetailViewController = segue.destination as? ProductDetailViewController
+            productDetailViewController?.product = searchProduct
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
