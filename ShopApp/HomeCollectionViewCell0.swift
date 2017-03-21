@@ -13,6 +13,7 @@ class HomeCollectionViewCell0: UICollectionViewCell {
     
     var product: Product!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var imageViewProduct: UIImageView!
     @IBOutlet weak var lblProductPrice: UILabel!
     
@@ -24,6 +25,11 @@ class HomeCollectionViewCell0: UICollectionViewCell {
         combination.append(text2)
         lblProductPrice.attributedText = combination
 //        imageViewProduct.af_setImage(withURL: NSURL(string: "http://a2b.mul.pw/static/img/\(product.imageShow_cover)") as! URL)
-        imageViewProduct.af_setImage(withURL: NSURL(string: ALL2SALE_API_IMAGE_PATH + product.imageShow_cover) as! URL)
+//        imageViewProduct.af_setImage(withURL: NSURL(string: ALL2SALE_API_IMAGE_PATH + product.imageShow_cover) as! URL)
+        imageViewProduct.af_setImage(withURL: NSURL(string: "http://a2b.mul.pw/static/img/\(product.imageShow_cover)") as! URL, placeholderImage: nil, filter: nil, imageTransition: .crossDissolve(1), completion: { response in
+//            let image = response.result.value // UIImage Object
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.hidesWhenStopped = true
+        })
     }
 }
